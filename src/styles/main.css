@@ -328,6 +328,11 @@ a {
     position: absolute;
 }
 
+/* First roadmap card with indigo border */
+.roadmap-content.roadmap-first {
+    border: 2px solid var(--indigo);
+}
+
 .roadmap-step:nth-child(odd) .roadmap-content {
     right: 55%;
     text-align: right;
