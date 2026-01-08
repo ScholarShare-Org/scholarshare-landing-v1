@@ -6,12 +6,12 @@
 import { Component } from './Component.js';
 
 export class Footer extends Component {
-    constructor(props = {}) {
-        super(props);
-    }
+  constructor(props = {}) {
+    super(props);
+  }
 
-    render() {
-        return `
+  render() {
+    return `
       <footer class="bg-slate-900 text-slate-400 pt-20 pb-10 border-t border-white/5" role="contentinfo">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-20">
           
@@ -125,18 +125,13 @@ export class Footer extends Component {
                   Terms of Use
                 </a>
               </li>
-              <li>
-                <a href="#" class="hover:text-indigo-400 transition-colors">
-                  NDA Policy
-                </a>
-              </li>
             </ul>
           </nav>
         </div>
 
         <!-- Bottom Bar -->
         <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs uppercase tracking-widest text-slate-500 font-bold">
-          <p>&copy; 2025 ScholarShare Platform. Strategic Middle-ware for NEP 2025.</p>
+          <p>&copy; 2026 ScholarShare Platform. Strategic Middle-ware for NEP 2025.</p>
           <div class="flex gap-6">
             <span>South & West India Focus</span>
             <span>Pilot Version 1.0</span>
@@ -144,15 +139,15 @@ export class Footer extends Component {
         </div>
       </footer>
     `;
-    }
+  }
 }
 
 // Create singleton instance
 let footerInstance = null;
 
 export function getFooter(props = {}) {
-    if (!footerInstance) {
-        footerInstance = new Footer(props);
-    }
-    return footerInstance;
+  if (!footerInstance) {
+    footerInstance = new Footer(props);
+  }
+  return footerInstance;
 }
