@@ -63,7 +63,9 @@ export class AboutPage extends Page {
               <div class="absolute top-0 right-0 p-8 opacity-10" aria-hidden="true">
                 <i class="fas fa-balance-scale text-8xl text-indigo-400"></i>
               </div>
-              <h2 class="text-[24px] lg:text-[32px] font-extrabold mb-8 text-indigo-900">Solving the "Transparency Paradox"</h2>
+              <h2 class="text-[24px] lg:text-[32px] font-extrabold mb-8 text-indigo-900">
+                Solving the Transparency Paradox
+              </h2>
               <div class="space-y-6">
                 <p class="text-lg leading-relaxed text-slate-700">Selling a system predicated on data honesty to a market historically prone to data manipulation is the ultimate challenge.</p>
                 <p class="text-lg leading-relaxed text-slate-600">ScholarShare solves this by pivoting from a tool of "policing" to an engine of <strong class="text-indigo-700">"generative compliance."</strong> We don't just measure the quality of education; we provide the active consultant engine that suggests local NGO partnerships or corporate gigs when the system detects a gap in your metrics.</p>
@@ -88,7 +90,7 @@ export class AboutPage extends Page {
           <div class="prose prose-lg text-slate-600 space-y-6">
 
             <!-- Expanded Dynamic Roadmap -->
-            <h2 class="text-center text-3xl md:text-4xl font-black mb-8 md:mb-12 text-slate-900 pt-8 md:pt-10">Our Roadmap</h2>
+            <h2 class="text-center text-4xl font-black mb-12 text-slate-900 pb-10">Our Roadmap</h2>
             <div class="roadmap-container">
               <div class="roadmap-path"></div>
               
@@ -140,9 +142,9 @@ export class AboutPage extends Page {
           </div>
 
           <!-- Intentional Deferment - Outside prose wrapper to avoid color override -->
-          <div class="mt-16 md:mt-32 p-8 md:p-12 bg-slate-900 rounded-3xl text-white">
-            <h2 class="text-2xl md:text-3xl font-black mb-6 md:mb-8 text-center text-white">What We're NOT Doing Yet (By Design)</h2>
-            <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+          <div class="mt-32 p-12 bg-slate-900 rounded-[3.5rem] text-white">
+            <h2 class="text-3xl font-black mb-8 text-center text-white">What We're NOT Doing Yet (By Design)</h2>
+            <div class="grid md:grid-cols-2 gap-12">
               <div>
                 <h4 class="font-bold text-indigo-400 mb-2">Automated ABC Pushing</h4>
                 <p class="text-slate-400 text-sm">We are intentionally deferring live ABC pushes until Phase 3 to ensure 100% data audit-readiness with regulator APIs.</p>
