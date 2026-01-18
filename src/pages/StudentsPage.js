@@ -6,17 +6,17 @@
 import { Page } from './Page.js';
 
 export class StudentsPage extends Page {
-    constructor(props = {}) {
-        super({
-            ...props,
-            pageId: 'students',
-            title: 'For Students | ScholarShare',
-            bgClass: 'bg-slate-50'
-        });
-    }
+  constructor(props = {}) {
+    super({
+      ...props,
+      pageId: 'students',
+      title: 'For Students | ScholarShare',
+      bgClass: 'bg-slate-50'
+    });
+  }
 
-    render() {
-        const content = `
+  render() {
+    const content = `
       <div class="pt-32 pb-20">
         <div class="max-w-7xl mx-auto px-6">
           <!-- Header Card -->
@@ -60,11 +60,11 @@ export class StudentsPage extends Page {
                 <h2 class="text-3xl font-black text-slate-900">Live Opportunity Feed</h2>
                 <p class="text-slate-500">Curated specifically for your major and skills.</p>
               </div>
-              <button class="text-indigo-600 font-bold hover:underline">View All Gigs →</button>
+              <button onclick="showComingSoon('Opportunity Marketplace')" class="text-indigo-600 font-bold hover:underline">View All Gigs →</button>
             </div>
             <div class="grid md:grid-cols-3 gap-6">
               <!-- Card 1 -->
-              <article class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm opportunity-card transition-all cursor-pointer">
+              <article onclick="showComingSoon('Opportunity Applications')" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm opportunity-card transition-all cursor-pointer">
                 <div class="flex justify-between items-start mb-4">
                   <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center text-xl" aria-hidden="true">
                     <i class="fas fa-laptop-code"></i>
@@ -79,7 +79,7 @@ export class StudentsPage extends Page {
                 </div>
               </article>
               <!-- Card 2 -->
-              <article class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm opportunity-card transition-all cursor-pointer">
+              <article onclick="showComingSoon('Opportunity Applications')" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm opportunity-card transition-all cursor-pointer">
                 <div class="flex justify-between items-start mb-4">
                   <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center text-xl" aria-hidden="true">
                     <i class="fas fa-leaf"></i>
@@ -94,7 +94,7 @@ export class StudentsPage extends Page {
                 </div>
               </article>
               <!-- Card 3 -->
-              <article class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm opportunity-card transition-all cursor-pointer">
+              <article onclick="showComingSoon('Opportunity Applications')" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm opportunity-card transition-all cursor-pointer">
                 <div class="flex justify-between items-start mb-4">
                   <div class="w-12 h-12 bg-pink-50 text-pink-600 rounded-xl flex items-center justify-center text-xl" aria-hidden="true">
                     <i class="fas fa-brain"></i>
@@ -156,6 +156,6 @@ export class StudentsPage extends Page {
       </div>
     `;
 
-        return this.renderPage(content);
-    }
+    return this.renderPage(content);
+  }
 }

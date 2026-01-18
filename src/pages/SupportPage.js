@@ -6,30 +6,30 @@
 import { Page } from './Page.js';
 
 export class SupportPage extends Page {
-    constructor(props = {}) {
-        super({
-            ...props,
-            pageId: 'support',
-            title: 'Support | ScholarShare',
-            bgClass: 'bg-white'
-        });
-    }
+  constructor(props = {}) {
+    super({
+      ...props,
+      pageId: 'support',
+      title: 'Support | ScholarShare',
+      bgClass: 'bg-white'
+    });
+  }
 
-    afterRender() {
-        // Setup form submission handler
-        const form = document.querySelector('#support-form');
-        if (form) {
-            form.addEventListener('submit', this.handleSubmit.bind(this));
-        }
+  afterRender() {
+    // Setup form submission handler
+    const form = document.querySelector('#support-form');
+    if (form) {
+      form.addEventListener('submit', this.handleSubmit.bind(this));
     }
+  }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        alert('Thank you for your inquiry! Our team will respond within 24 hours.');
-    }
+  handleSubmit(e) {
+    e.preventDefault();
+    alert('Thank you for your inquiry! Our team will respond within 24 hours.');
+  }
 
-    render() {
-        const content = `
+  render() {
+    const content = `
       <div class="pt-32 pb-20">
         <div class="max-w-5xl mx-auto px-6">
           <div class="text-center mb-20">
@@ -49,7 +49,7 @@ export class SupportPage extends Page {
               <article class="bg-slate-50 p-8 rounded-3xl border border-slate-200">
                 <h3 class="font-bold text-xl mb-4 text-indigo-600">Student Resources</h3>
                 <p class="text-slate-600 mb-6">Having issues with APAAR sync or credit mapping? Access our student guide.</p>
-                <button class="font-bold text-slate-900 border-b-2 border-indigo-600 pb-1">View Student FAQ</button>
+                <button onclick="showComingSoon('Student FAQ')" class="font-bold text-slate-900 border-b-2 border-indigo-600 pb-1">View Student FAQ</button>
               </article>
             </div>
             
@@ -100,6 +100,6 @@ export class SupportPage extends Page {
       </div>
     `;
 
-        return this.renderPage(content);
-    }
+    return this.renderPage(content);
+  }
 }

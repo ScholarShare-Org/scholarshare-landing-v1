@@ -234,5 +234,66 @@ function toggleMobileMenu() {
 // Expose toggleMobileMenu globally
 window.toggleMobileMenu = toggleMobileMenu;
 
+/**
+ * Show Coming Soon Modal
+ * @param {string} featureName - Name of the feature that's coming soon
+ */
+function showComingSoon(featureName = 'This feature') {
+    // Create modal overlay
+    const overlay = document.createElement('div');
+    overlay.id = 'coming-soon-modal';
+    overlay.className = 'fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50';
+    overlay.onclick = (e) => {
+        if (e.target === overlay) closeComingSoonModal();
+    };
+
+    // Modal content
+    overlay.innerHTML = `
+        <div class="bg-white rounded-3xl p-8 md:p-12 max-w-md mx-4 text-center shadow-2xl">
+            <div class="w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-rocket text-3xl text-indigo-600"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-4">Coming Soon!</h3>
+            <p class="text-slate-600 mb-8 leading-relaxed">
+                <strong>${featureName}</strong> is currently under development. 
+                We're working hard to bring you an amazing experience!
+            </p>
+            <div class="space-y-3">
+                <button 
+                    onclick="navigateTo('joinpilot'); closeComingSoonModal();"
+                    class="w-full bg-indigo-600 text-white px-6 py-4 rounded-xl font-bold hover:bg-indigo-700 transition-all"
+                >
+                    Join Pilot Program for Early Access
+                </button>
+                <button 
+                    onclick="closeComingSoonModal()"
+                    class="w-full bg-slate-100 text-slate-700 px-6 py-4 rounded-xl font-bold hover:bg-slate-200 transition-all"
+                >
+                    Close
+                </button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(overlay);
+    document.body.style.overflow = 'hidden';
+}
+
+/**
+ * Close Coming Soon Modal
+ */
+function closeComingSoonModal() {
+    const modal = document.getElementById('coming-soon-modal');
+    if (modal) {
+        modal.remove();
+        document.body.style.overflow = '';
+    }
+}
+
+// Expose showComingSoon and closeComingSoonModal globally
+window.showComingSoon = showComingSoon;
+window.closeComingSoonModal = closeComingSoonModal;
+
 // Export for potential external use
-export { app, navigateTo, toggleMobileMenu };
+export { app, navigateTo, toggleMobileMenu, showComingSoon, closeComingSoonModal };
+

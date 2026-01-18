@@ -6,6 +6,11 @@
 /* Google Fonts - Must be first */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
+/* Tailwind CSS v3 Directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ================================
    CSS Custom Properties (Design Tokens)
    ================================ */

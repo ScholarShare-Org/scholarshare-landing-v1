@@ -9,8 +9,8 @@ import { Component } from './Component.js';
  * Hero Section Component
  */
 export class HeroSection extends Component {
-    render() {
-        return `
+  render() {
+    return `
       <header class="relative pt-32 pb-20 overflow-hidden" role="banner">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div class="z-10 text-center md:text-left">
@@ -25,10 +25,10 @@ export class HeroSection extends Component {
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <button onclick="navigateTo('students')" class="bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-indigo-200 hover:bg-indigo-700 transition-all text-lg">
+              <button onclick="showComingSoon('Student App')" class="bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-indigo-200 hover:bg-indigo-700 transition-all text-lg">
                 Get Your Opportunities
               </button>
-              <button onclick="navigateTo('institutions')" class="bg-white border-2 border-slate-200 text-slate-700 px-8 py-4 rounded-2xl font-bold hover:bg-slate-50 transition-all text-lg">
+              <button onclick="navigateTo('joinpilot')" class="bg-white border-2 border-slate-200 text-slate-700 px-8 py-4 rounded-2xl font-bold hover:bg-slate-50 transition-all text-lg">
                 Request Institutional Demo
               </button>
             </div>
@@ -89,15 +89,15 @@ export class HeroSection extends Component {
         </div>
       </header>
     `;
-    }
+  }
 }
 
 /**
  * Dual Split Section - Students vs Institutions
  */
 export class DualSplitSection extends Component {
-    render() {
-        return `
+  render() {
+    return `
       <section class="py-20" id="sides" aria-labelledby="dual-heading">
         <h2 id="dual-heading" class="sr-only">For Students and Institutions</h2>
         <div class="max-w-7xl mx-auto px-6">
@@ -128,7 +128,7 @@ export class DualSplitSection extends Component {
                   <p class="text-lg">Shadow Curriculum: Find high-value skills beyond your classroom syllabus.</p>
                 </li>
               </ul>
-              <button class="bg-white text-indigo-700 px-8 py-4 rounded-xl font-black text-lg hover:bg-slate-50 transition-all uppercase tracking-tight">
+              <button onclick="showComingSoon('Student App Download')" class="bg-white text-indigo-700 px-8 py-4 rounded-xl font-black text-lg hover:bg-slate-50 transition-all uppercase tracking-tight">
                 Download App →
               </button>
             </div>
@@ -159,7 +159,7 @@ export class DualSplitSection extends Component {
                   <p class="text-lg text-slate-300">Internal PR: Telecast student achievements across digital signage and web feeds.</p>
                 </li>
               </ul>
-              <button class="bg-indigo-600 text-white px-8 py-4 rounded-xl font-black text-lg hover:bg-indigo-700 transition-all border border-indigo-400 uppercase tracking-tight">
+              <button onclick="showComingSoon('Intel Portal')" class="bg-indigo-600 text-white px-8 py-4 rounded-xl font-black text-lg hover:bg-indigo-700 transition-all border border-indigo-400 uppercase tracking-tight">
                 Intel Portal →
               </button>
             </div>
@@ -167,15 +167,15 @@ export class DualSplitSection extends Component {
         </div>
       </section>
     `;
-    }
+  }
 }
 
 /**
  * Intelligence Section - NAAC Features
  */
 export class IntelligenceSection extends Component {
-    render() {
-        return `
+  render() {
+    return `
       <section class="py-24 bg-white" id="intelligence-section" aria-labelledby="intelligence-heading">
         <div class="max-w-7xl mx-auto px-6 text-center">
           <h2 id="intelligence-heading" class="text-4xl font-extrabold mb-4">Real-time Institutional Vibrancy</h2>
@@ -214,15 +214,15 @@ export class IntelligenceSection extends Component {
         </div>
       </section>
     `;
-    }
+  }
 }
 
 /**
  * Pilot CTA Section
  */
 export class PilotCTASection extends Component {
-    render() {
-        return `
+  render() {
+    return `
       <section class="py-20 relative overflow-hidden" aria-labelledby="pilot-cta-heading">
         <div class="absolute inset-0 student-gradient opacity-10" aria-hidden="true"></div>
         <div class="max-w-5xl mx-auto px-6 relative">
@@ -242,7 +242,7 @@ export class PilotCTASection extends Component {
                 class="px-8 py-4 rounded-2xl bg-white border border-slate-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 min-w-[300px]"
                 aria-label="Enter your college email address"
               >
-              <button type="submit" class="bg-indigo-600 text-white px-10 py-4 rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200">
+              <button type="button" onclick="showComingSoon('Pilot Registration')" class="bg-indigo-600 text-white px-10 py-4 rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200">
                 Join the Revolution
               </button>
             </form>
@@ -250,26 +250,26 @@ export class PilotCTASection extends Component {
         </div>
       </section>
     `;
-    }
+  }
 }
 
 /**
  * Section Header Component
  */
 export class SectionHeader extends Component {
-    render() {
-        const { badge, title, subtitle, centered = true, light = false } = this.props;
+  render() {
+    const { badge, title, subtitle, centered = true, light = false } = this.props;
 
-        const containerClass = centered ? 'text-center' : '';
-        const titleClass = light ? 'text-white' : 'text-slate-900';
-        const subtitleClass = light ? 'text-slate-400' : 'text-slate-600';
+    const containerClass = centered ? 'text-center' : '';
+    const titleClass = light ? 'text-white' : 'text-slate-900';
+    const subtitleClass = light ? 'text-slate-400' : 'text-slate-600';
 
-        return `
+    return `
       <div class="${containerClass} mb-16">
         ${badge ? `<span class="${light ? 'text-indigo-400' : 'text-indigo-600'} font-bold uppercase tracking-widest text-sm">${badge}</span>` : ''}
         <h1 class="text-5xl font-black mt-4 ${titleClass}">${title}</h1>
         ${subtitle ? `<p class="${subtitleClass} mt-6 max-w-3xl ${centered ? 'mx-auto' : ''} text-lg leading-relaxed">${subtitle}</p>` : ''}
       </div>
     `;
-    }
+  }
 }
