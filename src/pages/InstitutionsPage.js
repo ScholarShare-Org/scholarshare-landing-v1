@@ -20,17 +20,16 @@ export class InstitutionsPage extends Page {
       <div class="pt-32 pb-20">
         <div class="max-w-7xl mx-auto px-6">
           <!-- Institutional Header -->
-          <div class="mb-32 lg:mb-40">
+          <div class="mb-20">
             <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/20 text-indigo-300 font-bold text-sm mb-6 uppercase tracking-wider">
               Institutional Operating System
             </div>
             <h1 class="text-5xl lg:text-7xl font-black text-white mb-8 leading-tight">
               Institutional Intelligence <br><span class="text-indigo-400">Beyond the ERP.</span>
             </h1>
-            <p class="text-xl lg:text-2xl text-slate-400 max-w-4xl mb-6 leading-relaxed">
-              Your ERP tracks fees and attendance—the bare minimum. But what about the hackathons your students win? The NSS camps they organize? The research papers they publish? That's the invisible data that defines institutional quality.
+            <p class="text-xl lg:text-2xl text-slate-400 max-w-3xl mb-12">
+              Legacy ERPs handle fees and attendance. ScholarShare handles the vibrancy. We turn the informal campus discourse into a verified ledger of institutional quality.
             </p>
-
             <div class="grid md:grid-cols-3 gap-8">
               <div class="p-8 rounded-[2rem] bg-white/5 border border-white/10">
                 <h3 class="text-indigo-400 text-3xl font-black mb-2">90%</h3>
@@ -47,10 +46,43 @@ export class InstitutionsPage extends Page {
                 <p class="text-slate-300 font-bold">3-Tier Verification Protocol.</p>
               </div>
             </div>
+
+            <!-- Hero Extension: The Data Gap -->
+            <div class="mt-8 text-center">
+              <p class="text-slate-500 text-sm uppercase tracking-widest mb-6">What's missing from your ERP?</p>
+              <div class="flex flex-wrap justify-center gap-3 lg:gap-4 mb-8">
+                <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-slate-300 text-sm font-medium">
+                  <i class="fas fa-trophy text-yellow-500 mr-2" aria-hidden="true"></i>Hackathon wins
+                </span>
+                <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-slate-300 text-sm font-medium">
+                  <i class="fas fa-hands-helping text-green-500 mr-2" aria-hidden="true"></i>NSS/NCC camps
+                </span>
+                <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-slate-300 text-sm font-medium">
+                  <i class="fas fa-file-alt text-blue-500 mr-2" aria-hidden="true"></i>Research papers
+                </span>
+                <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-slate-300 text-sm font-medium">
+                  <i class="fas fa-certificate text-purple-500 mr-2" aria-hidden="true"></i>Certifications
+                </span>
+                <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-slate-300 text-sm font-medium">
+                  <i class="fas fa-handshake text-indigo-400 mr-2" aria-hidden="true"></i>Industry visits
+                </span>
+                <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-slate-300 text-sm font-medium">
+                  <i class="fas fa-users text-pink-500 mr-2" aria-hidden="true"></i>Club activities
+                </span>
+              </div>
+              <p class="text-slate-400 max-w-2xl mx-auto mb-10">
+                This is the <strong class="text-white">invisible data</strong> that defines institutional quality—and it's exactly what NAAC peers want to see documented.
+              </p>
+              
+              <!-- Scroll indicator -->
+              <button onclick="document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' })" class="animate-bounce cursor-pointer hover:text-indigo-400 transition-colors" aria-label="Scroll to next section">
+                <i class="fas fa-chevron-down text-slate-600 hover:text-indigo-400 text-2xl" aria-hidden="true"></i>
+              </button>
+            </div>
           </div>
 
           <!-- HOW IT WORKS - HORIZONTAL FLOW -->
-          <div class="mb-32 lg:mb-40">
+          <div id="how-it-works" class="mb-16 scroll-mt-24">
             <div class="text-center mb-10">
               <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/20 text-indigo-300 font-bold text-sm mb-4 uppercase tracking-wider">
                 <i class="fas fa-cogs mr-2" aria-hidden="true"></i>End-to-End Automation
@@ -58,8 +90,8 @@ export class InstitutionsPage extends Page {
               <h2 class="text-4xl lg:text-5xl font-black text-white mb-6">
                 How ScholarShare <span class="text-indigo-400">Replaces Manual Work</span>
               </h2>
-              <p class="text-lg text-slate-400 max-w-4xl mx-auto">
-                ScholarShare captures every student achievement, verifies it through a 3-tier protocol, and auto-maps it to NAAC Criteria 3, 5, and 7. No more last-minute scrambles. No more fake certificates. Just <strong class="text-white">continuous, audit-ready documentation</strong> that proves your institution's vibrancy in real-time.
+              <p class="text-lg text-slate-400 max-w-3xl mx-auto">
+                From opportunity discovery to NAAC documentation—see whose work we automate at every step.
               </p>
             </div>
 
@@ -194,8 +226,19 @@ export class InstitutionsPage extends Page {
             </div>
           </div>
 
+          <!-- NAAC Lead-in -->
+          <div class="text-center mb-20">
+            <p class="text-xl lg:text-2xl text-slate-400 max-w-4xl mx-auto leading-relaxed mb-10">
+              ScholarShare captures every student achievement, verifies it through a 3-tier protocol, and auto-maps it to NAAC Criteria 3, 5, and 7. No more last-minute scrambles. No more fake certificates. Just <strong class="text-white">continuous, audit-ready documentation</strong> that proves your institution's vibrancy in real-time.
+            </p>
+            <!-- Scroll indicator -->
+            <button onclick="document.getElementById('naac-mapping').scrollIntoView({ behavior: 'smooth' })" class="animate-bounce cursor-pointer hover:text-indigo-400 transition-colors" aria-label="Scroll to NAAC section">
+              <i class="fas fa-chevron-down text-slate-600 hover:text-indigo-400 text-2xl" aria-hidden="true"></i>
+            </button>
+          </div>
+
           <!-- NAAC AUTOMATION - BIGGEST HIGHLIGHT (Professional Dashboard Style) -->
-          <div class="mb-32 lg:mb-40">
+          <div id="naac-mapping" class="mb-32 lg:mb-40 scroll-mt-24">
             <!-- Section Header -->
             <div class="text-center mb-12">
               <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/20 text-indigo-400 font-bold text-sm mb-4 uppercase tracking-wider">
@@ -279,44 +322,7 @@ export class InstitutionsPage extends Page {
                   <p class="text-xs text-slate-600">Community service, sustainability initiatives, institutional distinctiveness documentation</p>
                 </div>
 
-                <!-- Criterion 6 - MEDIUM -->
-                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
-                  <div class="text-sm text-slate-500 font-bold mb-1">Criterion 6</div>
-                  <div class="text-lg font-black text-slate-900 mb-2">Governance & Leadership</div>
-                  <div class="flex items-center gap-3 mb-3">
-                    <div class="flex-1 h-3 bg-slate-200 rounded-full overflow-hidden">
-                      <div class="h-full bg-slate-500 w-[50%]"></div>
-                    </div>
-                    <span class="text-slate-600 font-black">50%</span>
-                  </div>
-                  <p class="text-xs text-slate-500">Strategic insights, IQAC integration, quality assurance metrics</p>
-                </div>
 
-                <!-- Criterion 1 - MEDIUM-LOW -->
-                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
-                  <div class="text-sm text-slate-500 font-bold mb-1">Criterion 1</div>
-                  <div class="text-lg font-black text-slate-900 mb-2">Curricular Aspects</div>
-                  <div class="flex items-center gap-3 mb-3">
-                    <div class="flex-1 h-3 bg-slate-200 rounded-full overflow-hidden">
-                      <div class="h-full bg-slate-500 w-[40%]"></div>
-                    </div>
-                    <span class="text-slate-600 font-black">40%</span>
-                  </div>
-                  <p class="text-xs text-slate-500">MOOCs tracking, certifications, curriculum enrichment evidence</p>
-                </div>
-
-                <!-- Criteria 2 & 4 - LOW -->
-                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
-                  <div class="text-sm text-slate-500 font-bold mb-1">Criteria 2 & 4</div>
-                  <div class="text-lg font-black text-slate-900 mb-2">Teaching & Infrastructure</div>
-                  <div class="flex items-center gap-3 mb-3">
-                    <div class="flex-1 h-3 bg-slate-200 rounded-full overflow-hidden">
-                      <div class="h-full bg-slate-400 w-[25%]"></div>
-                    </div>
-                    <span class="text-slate-500 font-black">20-30%</span>
-                  </div>
-                  <p class="text-xs text-slate-500">Indirect support through engagement correlation and IT infrastructure evidence</p>
-                </div>
               </div>
 
               <!-- The Evidence Gap Section -->
@@ -398,10 +404,17 @@ export class InstitutionsPage extends Page {
                 Schedule NAAC Demo
               </button>
             </div>
+
+            <!-- Scroll to next section -->
+            <div class="text-center mt-12">
+              <button onclick="document.getElementById('evidence-verification').scrollIntoView({ behavior: 'smooth', block: 'center' })" class="animate-bounce cursor-pointer hover:text-indigo-400 transition-colors" aria-label="Scroll to next section">
+                <i class="fas fa-chevron-down text-slate-600 hover:text-indigo-400 text-2xl" aria-hidden="true"></i>
+              </button>
+            </div>
           </div>
 
           <!-- EVIDENCE COLLECTION & VERIFICATION - 2ND HIGHLIGHT -->
-          <div class="mb-32 lg:mb-40">
+          <div id="evidence-verification" class="mb-32 lg:mb-40 scroll-mt-24">
             <div class="bg-slate-800 rounded-[3rem] p-12 lg:p-16 border border-slate-700">
               <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
@@ -487,10 +500,17 @@ export class InstitutionsPage extends Page {
                 </div>
               </div>
             </div>
+
+            <!-- Scroll to next section -->
+            <div class="text-center mt-12">
+              <button onclick="document.getElementById('intelligence-modules').scrollIntoView({ behavior: 'smooth' })" class="animate-bounce cursor-pointer hover:text-indigo-400 transition-colors" aria-label="Scroll to next section">
+                <i class="fas fa-chevron-down text-slate-600 hover:text-indigo-400 text-2xl" aria-hidden="true"></i>
+              </button>
+            </div>
           </div>
 
           <!-- Intelligence Modules -->
-          <div class="grid lg:grid-cols-2 gap-12 mb-32 lg:mb-40">
+          <div id="intelligence-modules" class="grid lg:grid-cols-2 gap-12 mb-12 scroll-mt-24">
             <!-- Moneyball Effect Card -->
             <div class="bg-white rounded-[3rem] p-12 lg:p-16">
               <div class="w-16 h-16 bg-slate-900 text-white rounded-2xl flex items-center justify-center text-2xl mb-8" aria-hidden="true">
@@ -535,7 +555,7 @@ export class InstitutionsPage extends Page {
           </div>
 
           <!-- Shadow Infrastructure Section -->
-          <div class="bg-white/5 border border-white/10 rounded-[3rem] p-12 lg:p-20 flex flex-col lg:flex-row gap-12 items-center">
+          <div id="whatsapp-section" class="bg-white/5 border border-white/10 rounded-[3rem] p-12 lg:p-20 flex flex-col lg:flex-row gap-12 items-center scroll-mt-24">
             <div class="lg:w-1/2">
               <h2 class="text-4xl font-black text-white mb-6">Ending the WhatsApp Crisis</h2>
               <p class="text-slate-400 text-lg mb-8 leading-relaxed">
