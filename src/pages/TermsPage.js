@@ -15,8 +15,11 @@ export class TermsPage extends Page {
     });
   }
 
-  render() {
-    const content = `
+  /**
+   * Render the desktop layout (unchanged from original)
+   */
+  renderDesktopLayout() {
+    return `
       <div class="pt-32 pb-20">
         <div class="max-w-4xl mx-auto px-6">
           <h1 class="text-5xl font-black mb-4">Terms of Use</h1>
@@ -168,6 +171,101 @@ export class TermsPage extends Page {
             </section>
           </div>
         </div>
+      </div>
+    `;
+  }
+
+  /**
+   * Render the mobile-optimized layout
+   */
+  renderMobileLayout() {
+    return `
+      <div class="pt-20 pb-8 mobile-fade-in">
+        <div class="px-4">
+          <h1 class="mobile-hero-title mb-2">Terms of Use</h1>
+          <p class="text-slate-400 text-xs mb-6">Last updated: January 5, 2025</p>
+          
+          <div class="space-y-4 text-sm text-slate-600">
+            <p class="text-slate-700 text-sm leading-relaxed">
+              By using ScholarShare, you agree to these Terms and NEP 2020 guidelines.
+            </p>
+            
+            <!-- Account -->
+            <div class="mobile-card">
+              <h2 class="font-bold text-base text-slate-900 mb-2">1. Account & Registration</h2>
+              <ul class="text-xs space-y-1 list-disc list-inside">
+                <li>Provide accurate information</li>
+                <li>Keep credentials confidential</li>
+                <li>No multiple accounts</li>
+              </ul>
+            </div>
+            
+            <!-- Acceptable Use -->
+            <div class="mobile-card">
+              <h2 class="font-bold text-base text-slate-900 mb-2">2. Acceptable Use</h2>
+              <p class="text-xs mb-2 text-green-700">✓ Educational purposes, academic integrity, respect IP</p>
+              <p class="text-xs text-red-700">✗ No data fabrication, ragging, impersonation, or scraping</p>
+            </div>
+            
+            <!-- Campus Channels -->
+            <div class="mobile-card">
+              <h2 class="font-bold text-base text-slate-900 mb-2">3. Campus Channels</h2>
+              <p class="text-xs">Violations lead to suspension, HEI reporting, or permanent ban.</p>
+            </div>
+            
+            <!-- Data Verification Warning -->
+            <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
+              <p class="font-bold text-amber-800 text-sm mb-1">⚠️ Data Accuracy</p>
+              <p class="text-xs text-amber-700">
+                You're responsible for self-claimed data. Fabrication = academic penalties.
+              </p>
+            </div>
+            
+            <!-- Verification Tiers -->
+            <div class="mobile-card">
+              <h2 class="font-bold text-base text-slate-900 mb-2">4. Verification Tiers</h2>
+              <div class="text-xs space-y-1">
+                <p><strong>Tier 1:</strong> Self-claimed (informal)</p>
+                <p><strong>Tier 2:</strong> Peer-verified</p>
+                <p><strong>Tier 3:</strong> Host-verified (official ABC)</p>
+              </div>
+            </div>
+            
+            <!-- IP & Service -->
+            <div class="mobile-card">
+              <h2 class="font-bold text-base text-slate-900 mb-2">5. IP & Service Changes</h2>
+              <p class="text-xs">Platform content owned by ScholarShare. 30 days notice for changes.</p>
+            </div>
+            
+            <!-- Legal -->
+            <div class="mobile-card">
+              <h2 class="font-bold text-base text-slate-900 mb-2">6. Disputes</h2>
+              <p class="text-xs">Governed by Indian law. Arbitration under Act 1996. Bangalore courts.</p>
+            </div>
+            
+            <!-- Contact -->
+            <div class="bg-indigo-50 rounded-xl p-4">
+              <h3 class="font-bold text-sm text-slate-900 mb-2">Contact Legal</h3>
+              <a href="mailto:legal@scholarshare.in" class="text-indigo-600 text-sm font-medium">
+                legal@scholarshare.in
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  render() {
+    const content = `
+      <!-- Desktop Layout (hidden on mobile) -->
+      <div class="hidden md:block">
+        ${this.renderDesktopLayout()}
+      </div>
+      
+      <!-- Mobile Layout (hidden on desktop) -->
+      <div class="block md:hidden">
+        ${this.renderMobileLayout()}
       </div>
     `;
 

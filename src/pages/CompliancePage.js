@@ -6,17 +6,20 @@
 import { Page } from './Page.js';
 
 export class CompliancePage extends Page {
-    constructor(props = {}) {
-        super({
-            ...props,
-            pageId: 'compliance',
-            title: 'Regulatory Compliance | ScholarShare',
-            bgClass: 'bg-slate-50'
-        });
-    }
+  constructor(props = {}) {
+    super({
+      ...props,
+      pageId: 'compliance',
+      title: 'Regulatory Compliance | ScholarShare',
+      bgClass: 'bg-slate-50'
+    });
+  }
 
-    render() {
-        const content = `
+  /**
+   * Render the desktop layout (unchanged from original)
+   */
+  renderDesktopLayout() {
+    return `
       <div class="pt-32 pb-20">
         <div class="max-w-7xl mx-auto px-6">
           <div class="text-center mb-16">
@@ -48,7 +51,65 @@ export class CompliancePage extends Page {
         </div>
       </div>
     `;
+  }
 
-        return this.renderPage(content);
-    }
+  /**
+   * Render the mobile-optimized layout
+   */
+  renderMobileLayout() {
+    return `
+      <div class="pt-20 pb-24 mobile-fade-in">
+        <!-- Mobile Hero -->
+        <div class="px-4 mb-6 text-center">
+          <h1 class="mobile-hero-title mb-2">Regulatory Compliance</h1>
+          <p class="text-slate-500 text-sm">Built for UGC and NAAC 2024 Reforms.</p>
+        </div>
+
+        <!-- Compliance Cards -->
+        <div class="px-4 space-y-4">
+          <div class="mobile-card">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-indigo-600">
+                <i class="fas fa-balance-scale"></i>
+              </div>
+              <h3 class="font-bold text-base text-slate-900">Binary Accreditation Shield</h3>
+            </div>
+            <p class="text-sm text-slate-600 mb-3">NAAC uses Accredited/Not Accredited system with remote DVV. ScholarShare ensures 100% data integrity.</p>
+            <div class="bg-slate-50 px-3 py-2 rounded-lg text-[10px] font-bold text-slate-500 uppercase tracking-widest text-center">
+              NAAC 2024 Ready
+            </div>
+          </div>
+          
+          <div class="mobile-card">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-indigo-600">
+                <i class="fas fa-user-shield"></i>
+              </div>
+              <h3 class="font-bold text-base text-slate-900">Anti-Ragging Mandates</h3>
+            </div>
+            <p class="text-sm text-slate-600 mb-3">Campus Channels provide a sanctioned, safe alternative to WhatsApp for UGC grievance compliance.</p>
+            <div class="bg-slate-50 px-3 py-2 rounded-lg text-[10px] font-bold text-slate-500 uppercase tracking-widest text-center">
+              UGC Compliant
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  render() {
+    const content = `
+      <!-- Desktop Layout (hidden on mobile) -->
+      <div class="hidden md:block">
+        ${this.renderDesktopLayout()}
+      </div>
+      
+      <!-- Mobile Layout (hidden on desktop) -->
+      <div class="block md:hidden">
+        ${this.renderMobileLayout()}
+      </div>
+    `;
+
+    return this.renderPage(content);
+  }
 }

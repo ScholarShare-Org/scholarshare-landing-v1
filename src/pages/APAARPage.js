@@ -6,17 +6,20 @@
 import { Page } from './Page.js';
 
 export class APAARPage extends Page {
-    constructor(props = {}) {
-        super({
-            ...props,
-            pageId: 'apaar',
-            title: 'APAAR & ABC Integration | ScholarShare',
-            bgClass: 'bg-slate-50'
-        });
-    }
+  constructor(props = {}) {
+    super({
+      ...props,
+      pageId: 'apaar',
+      title: 'APAAR & ABC Integration | ScholarShare',
+      bgClass: 'bg-slate-50'
+    });
+  }
 
-    render() {
-        const content = `
+  /**
+   * Render the desktop layout (unchanged from original)
+   */
+  renderDesktopLayout() {
+    return `
       <div class="pt-32 pb-20">
         <div class="max-w-7xl mx-auto px-6">
           <div class="mb-16 flex flex-col md:flex-row gap-12 items-center">
@@ -61,7 +64,83 @@ export class APAARPage extends Page {
         </div>
       </div>
     `;
+  }
 
-        return this.renderPage(content);
-    }
+  /**
+   * Render the mobile-optimized layout (experience-first design)
+   */
+  renderMobileLayout() {
+    return `
+      <div class="pt-16 pb-28 mobile-fade-in">
+        <!-- Mobile Hero -->
+        <div class="px-4 mb-6 text-center">
+          <span class="mobile-feature-pill mb-3 mobile-stagger-1">
+            <i class="fas fa-id-card"></i> One Nation, One ID
+          </span>
+          <h1 class="mobile-display-title mb-2 mobile-stagger-2">APAAR & ABC <span class="text-indigo-600">Sync</span></h1>
+          <p class="text-slate-500 text-sm mobile-stagger-3">The Aadhaar of education meets verified achievements.</p>
+        </div>
+
+        <!-- APAAR Register Card -->
+        <div class="px-4 mb-6">
+          <div class="bg-indigo-600 rounded-2xl p-5 text-white mobile-hero-glow mobile-stagger-4">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
+                <i class="fas fa-id-card"></i>
+              </div>
+              <div>
+                <div class="font-bold text-sm">APAAR REGISTER</div>
+                <div class="text-xs opacity-70">12-Digit Lifelong ID</div>
+              </div>
+            </div>
+            <div class="mobile-split-row mb-3">
+              <div class="bg-white/10 rounded-xl p-3">
+                <div class="text-[10px] opacity-60 uppercase font-bold">Year</div>
+                <div class="font-bold text-sm">2025-26</div>
+              </div>
+              <div class="bg-white/10 rounded-xl p-3">
+                <div class="text-[10px] opacity-60 uppercase font-bold">Credits</div>
+                <div class="font-bold text-lg">24.5</div>
+              </div>
+            </div>
+            <div class="bg-green-500/30 rounded-xl p-3 text-center text-sm font-bold">
+              ✓ ABC Push Completed
+            </div>
+          </div>
+        </div>
+
+        <!-- NCrF Compliance -->
+        <div class="px-4 mb-4">
+          <div class="mobile-card mobile-touch-active">
+            <h3 class="font-bold text-sm mb-2 text-slate-900">NCrF Compliance</h3>
+            <p class="text-xs text-slate-600">The National Credit Framework maps sports, yoga, and social service directly to credit-bearing activities.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Floating CTA -->
+      <div class="mobile-floating-cta">
+        <button onclick="navigateTo('students')" class="mobile-btn-primary flex items-center justify-center gap-2">
+          <span>Learn More</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    `;
+  }
+
+  render() {
+    const content = `
+      <!-- Desktop Layout (hidden on mobile) -->
+      <div class="hidden md:block">
+        ${this.renderDesktopLayout()}
+      </div>
+      
+      <!-- Mobile Layout (hidden on desktop) -->
+      <div class="block md:hidden">
+        ${this.renderMobileLayout()}
+      </div>
+    `;
+
+    return this.renderPage(content);
+  }
 }

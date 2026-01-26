@@ -15,8 +15,11 @@ export class PrivacyPage extends Page {
     });
   }
 
-  render() {
-    const content = `
+  /**
+   * Render the desktop layout (unchanged from original)
+   */
+  renderDesktopLayout() {
+    return `
       <div class="pt-32 pb-20">
         <div class="max-w-4xl mx-auto px-6">
           <h1 class="text-5xl font-black mb-4">Privacy Policy</h1>
@@ -145,6 +148,103 @@ export class PrivacyPage extends Page {
             </section>
           </div>
         </div>
+      </div>
+    `;
+  }
+
+  /**
+   * Render the mobile-optimized layout
+   */
+  renderMobileLayout() {
+    return `
+      <div class="pt-20 pb-8 mobile-fade-in">
+        <div class="px-4">
+          <h1 class="mobile-hero-title mb-2">Privacy Policy</h1>
+          <p class="text-slate-400 text-xs mb-6">Last updated: January 5, 2025</p>
+          
+          <div class="space-y-4 text-sm text-slate-600">
+            <p class="text-slate-700 text-sm leading-relaxed">
+              ScholarShare is committed to protecting your privacy in compliance with the <strong>DPDP Act 2023</strong>.
+            </p>
+            
+            <!-- Section 1 -->
+            <div class="mobile-card">
+              <h2 class="font-bold text-base text-slate-900 mb-2">1. Information We Collect</h2>
+              <div class="space-y-2 text-xs">
+                <p><strong>Student:</strong> Identity, academic, activity & technical data</p>
+                <p><strong>Institutional:</strong> Profile, admin users, aggregated metrics</p>
+              </div>
+            </div>
+            
+            <!-- Section 2 -->
+            <div class="mobile-card">
+              <h2 class="font-bold text-base text-slate-900 mb-2">2. How We Use Data</h2>
+              <ul class="text-xs space-y-1 list-disc list-inside">
+                <li>Credit mapping & ABC integration</li>
+                <li>Personalized recommendations</li>
+                <li>NAAC compliance reports</li>
+                <li>Platform improvement</li>
+              </ul>
+            </div>
+            
+            <!-- Section 3 -->
+            <div class="mobile-card">
+              <h2 class="font-bold text-base text-slate-900 mb-2">3. Data Ownership</h2>
+              <p class="text-xs">Students retain ownership. Institutions are data controllers; ScholarShare is the processor.</p>
+            </div>
+            
+            <!-- Section 4 -->
+            <div class="mobile-card">
+              <h2 class="font-bold text-base text-slate-900 mb-2">4. Data Security</h2>
+              <ul class="text-xs space-y-1 list-disc list-inside">
+                <li>TLS 1.3 & AES-256 encryption</li>
+                <li>SOC2 Type II compliant</li>
+                <li>MFA available</li>
+              </ul>
+            </div>
+            
+            <!-- Section 5-6 -->
+            <div class="mobile-card">
+              <h2 class="font-bold text-base text-slate-900 mb-2">5. Data Retention & Sharing</h2>
+              <p class="text-xs mb-2">Student data: Academic journey + 7 years. We do not sell data.</p>
+              <p class="text-xs text-slate-500">Limited sharing: Government (APAAR/ABC), Cloud providers (DPA), Analytics (anonymized).</p>
+            </div>
+            
+            <!-- Section 7 -->
+            <div class="mobile-card">
+              <h2 class="font-bold text-base text-slate-900 mb-2">6. Your Rights (DPDP 2023)</h2>
+              <ul class="text-xs space-y-1 list-disc list-inside">
+                <li>Access & correct your data</li>
+                <li>Request erasure</li>
+                <li>Withdraw consent</li>
+                <li>Lodge grievance with DPB</li>
+              </ul>
+            </div>
+            
+            <!-- Contact -->
+            <div class="bg-indigo-50 rounded-xl p-4">
+              <h3 class="font-bold text-sm text-slate-900 mb-2">Contact DPO</h3>
+              <a href="mailto:privacy@scholarshare.in" class="text-indigo-600 text-sm font-medium">
+                privacy@scholarshare.in
+              </a>
+              <p class="text-xs text-slate-500 mt-1">Response: 72 hours</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  render() {
+    const content = `
+      <!-- Desktop Layout (hidden on mobile) -->
+      <div class="hidden md:block">
+        ${this.renderDesktopLayout()}
+      </div>
+      
+      <!-- Mobile Layout (hidden on desktop) -->
+      <div class="block md:hidden">
+        ${this.renderMobileLayout()}
       </div>
     `;
 

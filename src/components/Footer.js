@@ -10,7 +10,10 @@ export class Footer extends Component {
     super(props);
   }
 
-  render() {
+  /**
+   * Render the desktop layout (unchanged from original)
+   */
+  renderDesktopLayout() {
     return `
       <footer class="bg-slate-900 text-slate-400 pt-20 pb-10 border-t border-white/5" role="contentinfo">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-20">
@@ -138,6 +141,84 @@ export class Footer extends Component {
           </div>
         </div>
       </footer>
+    `;
+  }
+
+  /**
+   * Render the mobile-optimized layout
+   */
+  renderMobileLayout() {
+    return `
+      <footer class="bg-slate-900 text-slate-400 pt-2 pb-6" role="contentinfo">
+        <div class="px-4">
+          <!-- Logo & Description -->
+          <div class="text-center py-4 mb-6 border-b border-slate-800">
+            <div class="flex items-center justify-center gap-2 mb-2" onclick="navigateTo('home')">
+              <div class="w-9 h-9 bg-indigo-600 rounded-lg flex items-center justify-center text-white">
+                <i class="fas fa-graduation-cap text-sm"></i>
+              </div>
+              <span class="text-lg font-bold text-white">ScholarShare</span>
+            </div>
+            <p class="text-slate-500 text-xs max-w-xs mx-auto">India's first opportunity & institutional intelligence platform.</p>
+          </div>
+          
+          <!-- Quick Links - Horizontal on mobile -->
+          <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs font-medium mb-6 pb-6 border-b border-slate-800">
+            <a href="javascript:void(0)" onclick="navigateTo('students')" class="text-slate-400 hover:text-white">Students</a>
+            <span class="text-slate-700">•</span>
+            <a href="javascript:void(0)" onclick="navigateTo('institutions')" class="text-slate-400 hover:text-white">Institutions</a>
+            <span class="text-slate-700">•</span>
+            <a href="javascript:void(0)" onclick="navigateTo('naac')" class="text-slate-400 hover:text-white">NAAC</a>
+            <span class="text-slate-700">•</span>
+            <a href="javascript:void(0)" onclick="navigateTo('about')" class="text-slate-400 hover:text-white">About</a>
+          </div>
+          
+          <!-- Legal Links -->
+          <div class="flex justify-center gap-4 text-xs font-medium mb-6">
+            <a href="javascript:void(0)" onclick="navigateTo('privacy')" class="text-slate-500 hover:text-white">Privacy</a>
+            <a href="javascript:void(0)" onclick="navigateTo('terms')" class="text-slate-500 hover:text-white">Terms</a>
+            <a href="javascript:void(0)" onclick="navigateTo('security')" class="text-slate-500 hover:text-white">Security</a>
+            <a href="javascript:void(0)" onclick="navigateTo('support')" class="text-slate-500 hover:text-white">Support</a>
+          </div>
+          
+          <!-- Social Links -->
+          <div class="flex justify-center gap-3 mb-6">
+            <a href="https://linkedin.com/company/scholarshare" target="_blank" rel="noopener noreferrer"
+               class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-indigo-600 hover:text-white transition-all">
+              <i class="fab fa-linkedin-in text-sm"></i>
+            </a>
+            <a href="https://twitter.com/ScholarShareIN" target="_blank" rel="noopener noreferrer"
+               class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-indigo-600 hover:text-white transition-all">
+              <i class="fab fa-twitter text-sm"></i>
+            </a>
+            <a href="https://instagram.com/scholarshare.in" target="_blank" rel="noopener noreferrer"
+               class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-indigo-600 hover:text-white transition-all">
+              <i class="fab fa-instagram text-sm"></i>
+            </a>
+          </div>
+          
+          <!-- Copyright -->
+          <div class="text-center text-[10px] text-slate-600 pt-4 border-t border-slate-800">
+            <p>© 2026 ScholarShare Platform</p>
+            <p class="mt-1">NEP 2025 Ready • South & West India Focus</p>
+          </div>
+        </div>
+      </footer>
+    `;
+  }
+
+
+  render() {
+    return `
+      <!-- Desktop Footer -->
+      <div class="hidden md:block">
+        ${this.renderDesktopLayout()}
+      </div>
+      
+      <!-- Mobile Footer -->
+      <div class="block md:hidden">
+        ${this.renderMobileLayout()}
+      </div>
     `;
   }
 }

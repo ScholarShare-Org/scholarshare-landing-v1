@@ -28,8 +28,11 @@ export class SupportPage extends Page {
     alert('Thank you for your inquiry! Our team will respond within 24 hours.');
   }
 
-  render() {
-    const content = `
+  /**
+   * Render the desktop layout (unchanged from original)
+   */
+  renderDesktopLayout() {
+    return `
       <div class="pt-32 pb-20">
         <div class="max-w-5xl mx-auto px-6">
           <div class="text-center mb-20">
@@ -97,6 +100,87 @@ export class SupportPage extends Page {
             </div>
           </div>
         </div>
+      </div>
+    `;
+  }
+
+  /**
+   * Render the mobile-optimized layout
+   */
+  renderMobileLayout() {
+    return `
+      <div class="pt-24 pb-16 mobile-fade-in">
+        <!-- Mobile Hero -->
+        <div class="px-4 mb-6 text-center">
+          <h1 class="mobile-hero-title mb-2">Get Support</h1>
+          <p class="text-slate-500 text-sm">Academic consultants & technical architects ready to help.</p>
+        </div>
+
+        <!-- Contact Options -->
+        <div class="px-4 space-y-3 mb-6">
+          <div class="mobile-card">
+            <h3 class="font-bold text-base text-indigo-600 mb-2">Institutional Helpdesk</h3>
+            <p class="text-sm text-slate-600 mb-3">Support for IQAC Heads and Admins.</p>
+            <a href="mailto:support@scholarshare.in" class="mobile-btn-secondary text-sm py-3 block text-center">
+              <i class="fas fa-envelope mr-2"></i>support@scholarshare.in
+            </a>
+          </div>
+          
+          <div class="mobile-card">
+            <h3 class="font-bold text-base text-indigo-600 mb-2">Student Resources</h3>
+            <p class="text-sm text-slate-600 mb-3">APAAR sync or credit mapping issues?</p>
+            <button onclick="showComingSoon('Student FAQ')" class="mobile-btn-secondary text-sm py-3 w-full">
+              <i class="fas fa-book mr-2"></i>View Student FAQ
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Inquiry Form -->
+        <div class="px-4">
+          <div class="bg-indigo-600 rounded-2xl p-5 text-white">
+            <h3 class="font-bold text-lg mb-4">Direct Inquiry</h3>
+            <form id="support-form-mobile" class="space-y-3">
+              <input 
+                type="text" 
+                name="name"
+                placeholder="Name" 
+                class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 placeholder-white/50 text-sm focus:outline-none"
+                required
+              >
+              <input 
+                type="email" 
+                name="email"
+                placeholder="Email" 
+                class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 placeholder-white/50 text-sm focus:outline-none"
+                required
+              >
+              <textarea 
+                name="message"
+                placeholder="Your Message" 
+                rows="3" 
+                class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 placeholder-white/50 text-sm focus:outline-none"
+                required
+              ></textarea>
+              <button type="submit" class="w-full bg-white text-indigo-600 font-bold py-3 rounded-xl">
+                Send Inquiry
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  render() {
+    const content = `
+      <!-- Desktop Layout (hidden on mobile) -->
+      <div class="hidden md:block">
+        ${this.renderDesktopLayout()}
+      </div>
+      
+      <!-- Mobile Layout (hidden on desktop) -->
+      <div class="block md:hidden">
+        ${this.renderMobileLayout()}
       </div>
     `;
 

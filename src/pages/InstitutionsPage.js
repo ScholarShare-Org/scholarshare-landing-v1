@@ -15,8 +15,11 @@ export class InstitutionsPage extends Page {
     });
   }
 
-  render() {
-    const content = `
+  /**
+   * Render the desktop layout (unchanged from original)
+   */
+  renderDesktopLayout() {
+    return `
       <div class="pt-32 pb-20">
         <div class="max-w-7xl mx-auto px-6">
           <!-- Institutional Header -->
@@ -39,11 +42,9 @@ export class InstitutionsPage extends Page {
                 <h3 class="text-indigo-400 text-3xl font-black mb-2">100%</h3>
                 <p class="text-slate-300 font-bold">Student participation audit-readiness.</p>
               </div>
-              <div class="p-8 rounded-[2rem] bg-white/5 border border-white/10 cursor-pointer hover:bg-white/10 transition-all" onclick="navigateTo('security')">
-                <h3 class="text-indigo-400 text-3xl font-black mb-2">
-                  <i class="fas fa-lock text-sm align-middle mr-2" aria-hidden="true"></i>Secure
-                </h3>
-                <p class="text-slate-300 font-bold">3-Tier Verification Protocol.</p>
+              <div class="p-8 rounded-[2rem] bg-white/5 border border-white/10">
+                <h3 class="text-indigo-400 text-3xl font-black mb-2">180+</h3>
+                <p class="text-slate-300 font-bold">NAAC marks saved through automation.</p>
               </div>
             </div>
 
@@ -52,22 +53,22 @@ export class InstitutionsPage extends Page {
               <p class="text-slate-500 text-sm uppercase tracking-widest mb-6">What's missing from your ERP?</p>
               <div class="flex flex-wrap justify-center gap-3 lg:gap-4 mb-8">
                 <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-slate-300 text-sm font-medium">
-                  <i class="fas fa-trophy text-yellow-500 mr-2" aria-hidden="true"></i>Hackathon wins
+                  <i class="fas fa-chart-line text-yellow-500 mr-2" aria-hidden="true"></i>Engagement Tracking
                 </span>
                 <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-slate-300 text-sm font-medium">
-                  <i class="fas fa-hands-helping text-green-500 mr-2" aria-hidden="true"></i>NSS/NCC camps
+                  <i class="fas fa-award text-green-500 mr-2" aria-hidden="true"></i>NAAC Compliance
                 </span>
                 <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-slate-300 text-sm font-medium">
-                  <i class="fas fa-file-alt text-blue-500 mr-2" aria-hidden="true"></i>Research papers
+                  <i class="fas fa-exclamation-triangle text-amber-500 mr-2" aria-hidden="true"></i>Opportunity Gaps
                 </span>
                 <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-slate-300 text-sm font-medium">
-                  <i class="fas fa-certificate text-purple-500 mr-2" aria-hidden="true"></i>Certifications
+                  <i class="fas fa-trash-alt text-red-500 mr-2" aria-hidden="true"></i>Resource Waste
                 </span>
                 <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-slate-300 text-sm font-medium">
-                  <i class="fas fa-handshake text-indigo-400 mr-2" aria-hidden="true"></i>Industry visits
+                  <i class="fas fa-brain text-purple-500 mr-2" aria-hidden="true"></i>Student Intent
                 </span>
                 <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-slate-300 text-sm font-medium">
-                  <i class="fas fa-users text-pink-500 mr-2" aria-hidden="true"></i>Club activities
+                  <i class="fas fa-eye text-blue-500 mr-2" aria-hidden="true"></i>Outcome Visibility
                 </span>
               </div>
               <p class="text-slate-400 max-w-2xl mx-auto mb-10">
@@ -573,6 +574,257 @@ export class InstitutionsPage extends Page {
             </div>
           </div>
         </div>
+      </div>
+    `;
+  }
+
+  /**
+   * Render the mobile-optimized layout (experience-first design)
+   */
+  renderMobileLayout() {
+    return `
+      <div class="pt-24 mobile-fade-in bg-slate-900">
+        <!-- Mobile Hero with Glow -->
+        <div class="px-4 mb-4 mobile-hero-glow">
+          <span class="mobile-feature-pill bg-indigo-500/20 text-indigo-400 mb-4 mobile-stagger-1">
+            <i class="fas fa-building"></i> Institutional OS
+          </span>
+          <h1 class="mobile-display-title text-white mb-3 mobile-stagger-2">
+            Intelligence <span class="text-indigo-400">Beyond ERP</span>
+          </h1>
+          <p class="text-slate-400 text-sm leading-relaxed mb-5 mobile-stagger-3">
+            Turn campus activities into verified, NAAC-ready documentation.
+          </p>
+          
+          <!-- Quick Stats - Redesigned -->
+          <div class="grid grid-cols-3 gap-2 mb-4">
+            <div class="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm rounded-xl p-3 text-center border border-slate-700/50">
+              <div class="text-indigo-400 text-xl font-black">90%</div>
+              <div class="text-slate-500 text-[10px] uppercase tracking-wider">Less Manual</div>
+            </div>
+            <div class="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm rounded-xl p-3 text-center border border-slate-700/50">
+              <div class="text-indigo-400 text-xl font-black">100%</div>
+              <div class="text-slate-500 text-[10px] uppercase tracking-wider">Audit Ready</div>
+            </div>
+            <div class="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm rounded-xl p-3 text-center border border-slate-700/50">
+              <div class="text-indigo-400 text-xl font-black">180+</div>
+              <div class="text-slate-500 text-[10px] uppercase tracking-wider">Marks Saved</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- What's Missing Section - Pyramid Layout -->
+        <div class="px-4 mb-4">
+          <div class="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50">
+            <p class="text-slate-500 text-xs uppercase tracking-widest mb-3 text-center">What's missing from your ERP?</p>
+            <!-- Pyramid: 1 on top, 2 middle, 3 bottom -->
+            <div class="flex flex-col items-center gap-2">
+              <!-- Row 1: 1 item -->
+              <div class="flex justify-center gap-2">
+                <span class="px-3 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 text-xs font-medium">
+                  <i class="fas fa-chart-line text-yellow-400 mr-1"></i>Engagement Tracking
+                </span>
+              </div>
+              <!-- Row 2: 2 items -->
+              <div class="flex justify-center gap-2">
+                <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300 text-xs font-medium">
+                  <i class="fas fa-award text-green-400 mr-1"></i>NAAC Compliance
+                </span>
+                <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300 text-xs font-medium">
+                  <i class="fas fa-exclamation-triangle text-amber-400 mr-1"></i>Opportunity Gaps
+                </span>
+              </div>
+              <!-- Row 3: 3 items -->
+              <div class="flex justify-center gap-2 flex-wrap">
+                <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300 text-xs font-medium">
+                  <i class="fas fa-trash-alt text-red-400 mr-1"></i>Resource Waste
+                </span>
+                <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300 text-xs font-medium">
+                  <i class="fas fa-brain text-purple-400 mr-1"></i>Student Intent
+                </span>
+                <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300 text-xs font-medium">
+                  <i class="fas fa-eye text-blue-400 mr-1"></i>Outcome Visibility
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- How It Works - Theme Colors -->
+        <div class="px-4 mb-4">
+          <h2 class="text-lg font-black text-white mb-3 flex items-center gap-2">
+            <i class="fas fa-cogs text-indigo-400 text-sm"></i> How It Works
+          </h2>
+          <div class="space-y-2">
+            <!-- Step 1 -->
+            <div class="bg-slate-800/60 backdrop-blur-sm rounded-xl p-3 flex items-center gap-3 border border-slate-700/50">
+              <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                <i class="fas fa-search text-white text-sm"></i>
+              </div>
+              <div class="flex-1">
+                <div class="text-white font-bold text-sm">Discover</div>
+                <div class="text-slate-400 text-xs">AI curates opportunities</div>
+              </div>
+              <i class="fas fa-chevron-right text-slate-600 text-xs"></i>
+            </div>
+            <!-- Step 2 -->
+            <div class="bg-slate-800/60 backdrop-blur-sm rounded-xl p-3 flex items-center gap-3 border border-slate-700/50">
+              <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+                <i class="fas fa-share-alt text-white text-sm"></i>
+              </div>
+              <div class="flex-1">
+                <div class="text-white font-bold text-sm">Distribute</div>
+                <div class="text-slate-400 text-xs">Smart push to right students</div>
+              </div>
+              <i class="fas fa-chevron-right text-slate-600 text-xs"></i>
+            </div>
+            <!-- Step 3 -->
+            <div class="bg-slate-800/60 backdrop-blur-sm rounded-xl p-3 flex items-center gap-3 border border-slate-700/50">
+              <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                <i class="fas fa-camera text-white text-sm"></i>
+              </div>
+              <div class="flex-1">
+                <div class="text-white font-bold text-sm">Capture</div>
+                <div class="text-slate-400 text-xs">Geo + timestamp evidence</div>
+              </div>
+              <i class="fas fa-chevron-right text-slate-600 text-xs"></i>
+            </div>
+            <!-- Step 4 -->
+            <div class="bg-slate-800/60 backdrop-blur-sm rounded-xl p-3 flex items-center gap-3 border border-slate-700/50">
+              <div class="w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-500 rounded-xl flex items-center justify-center shadow-lg">
+                <i class="fas fa-shield-alt text-white text-sm"></i>
+              </div>
+              <div class="flex-1">
+                <div class="text-white font-bold text-sm">Verify</div>
+                <div class="text-slate-400 text-xs">3-tier approval workflow</div>
+              </div>
+              <i class="fas fa-chevron-right text-slate-600 text-xs"></i>
+            </div>
+            <!-- Step 5 - Highlighted with icon layout -->
+            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl p-3 flex items-center gap-3 shadow-lg shadow-indigo-500/20">
+              <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-lg">
+                <i class="fas fa-award text-indigo-600 text-sm"></i>
+              </div>
+              <div class="flex-1">
+                <div class="text-white font-bold text-sm">NAAC Ready</div>
+                <div class="text-indigo-200 text-xs">Auto-mapped to criteria</div>
+              </div>
+              <i class="fas fa-check-circle text-white/80 text-sm"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- NAAC Impact -->
+        <div class="px-4 mb-6">
+          <div class="bg-white rounded-2xl p-5">
+            <div class="flex items-center gap-2 mb-4">
+              <i class="fas fa-award text-indigo-600"></i>
+              <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider">NAAC Impact</span>
+            </div>
+            
+            <div class="mobile-split-row mb-4">
+              <div class="text-center p-3 bg-indigo-50 rounded-xl">
+                <div class="text-2xl font-black text-indigo-600">180+</div>
+                <div class="text-xs text-slate-500">Marks Impacted</div>
+              </div>
+              <div class="text-center p-3 bg-slate-50 rounded-xl">
+                <div class="text-2xl font-black text-slate-900">45%</div>
+                <div class="text-xs text-slate-500">Automation</div>
+              </div>
+            </div>
+            
+            <!-- Criteria Progress -->
+            <div class="space-y-3">
+              <div>
+                <div class="flex justify-between text-xs font-bold mb-1">
+                  <span>Criterion 5 - Student Support</span>
+                  <span class="text-green-600">80%</span>
+                </div>
+                <div class="mobile-progress-bar">
+                  <div class="mobile-progress-fill bg-green-500" style="width: 80%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs font-bold mb-1">
+                  <span>Criterion 3 - Research</span>
+                  <span class="text-blue-600">70%</span>
+                </div>
+                <div class="mobile-progress-bar">
+                  <div class="mobile-progress-fill bg-blue-500" style="width: 70%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs font-bold mb-1">
+                  <span>Criterion 7 - Values</span>
+                  <span class="text-purple-600">60%</span>
+                </div>
+                <div class="mobile-progress-bar">
+                  <div class="mobile-progress-fill bg-purple-500" style="width: 60%"></div>
+                </div>
+              </div>
+            </div>
+            
+            <button onclick="navigateTo('naac')" class="mobile-btn-primary mt-4 mobile-touch-active">
+              Explore NAAC Features <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Evidence & Verification - Polished -->
+        <div class="px-4 mb-4">
+          <div class="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm rounded-xl p-4 border border-green-500/20">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-6 h-6 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
+                <i class="fas fa-shield-alt text-white text-xs"></i>
+              </div>
+              <span class="text-xs font-bold text-green-400 uppercase tracking-wider">Trust Layer</span>
+            </div>
+            <h3 class="text-white font-bold text-sm mb-1">Evidence Verification</h3>
+            <p class="text-slate-400 text-xs mb-3">Every certificate verified through 3-tier protocol.</p>
+            
+            <div class="grid grid-cols-2 gap-2">
+              <div class="bg-slate-900/50 rounded-lg p-2 text-center border border-slate-700/50">
+                <div class="text-green-400 font-black text-lg">2,450</div>
+                <div class="text-slate-500 text-[10px] uppercase">Certs Verified</div>
+              </div>
+              <div class="bg-slate-900/50 rounded-lg p-2 text-center border border-slate-700/50">
+                <div class="text-blue-400 font-black text-lg">186</div>
+                <div class="text-slate-500 text-[10px] uppercase">Events Logged</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vibrancy Score - Compact -->
+        <div class="px-4 mb-4">
+          <div class="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm rounded-xl p-4 text-center border border-indigo-500/30">
+            <div class="text-indigo-400 text-base font-bold">Vibrancy <span class="text-white">Score</span></div>
+            <div class="text-4xl font-black text-white my-1">92</div>
+            <p class="text-slate-500 text-[10px] uppercase tracking-widest">Real-Time Index</p>
+          </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="px-4 pb-6 border-b border-slate-800">
+          <button onclick="navigateTo('joinpilot')" class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg shadow-indigo-500/20 flex items-center justify-center gap-2">
+            <span>Schedule Demo</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    `;
+  }
+
+  render() {
+    const content = `
+      <!-- Desktop Layout (hidden on mobile) -->
+      <div class="hidden md:block">
+        ${this.renderDesktopLayout()}
+      </div>
+      
+      <!-- Mobile Layout (hidden on desktop) -->
+      <div class="block md:hidden">
+        ${this.renderMobileLayout()}
       </div>
     `;
 

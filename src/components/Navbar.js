@@ -131,34 +131,36 @@ export class Navbar extends Component {
           </div>
         </div>
         
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="lg:hidden hidden fixed inset-0 top-[72px] bg-white/95 backdrop-blur-lg z-40">
-          <div class="flex flex-col p-6 space-y-4">
+        <!-- Mobile Dropdown Menu - Simple dropdown below navbar -->
+        <div id="mobile-menu" class="lg:hidden hidden absolute left-0 right-0 top-full bg-white shadow-xl border-t border-slate-100">
+          <div class="flex flex-col p-4">
             <a href="javascript:void(0)" 
                onclick="navigateTo('students'); toggleMobileMenu();" 
-               class="nav-link text-lg font-semibold text-slate-700 hover:text-indigo-600 py-3 border-b border-slate-100">
+               class="nav-link font-medium text-slate-700 hover:text-indigo-600 hover:bg-indigo-50 py-3 px-4 rounded-lg transition-colors">
               Students
             </a>
             <a href="javascript:void(0)" 
                onclick="navigateTo('institutions'); toggleMobileMenu();" 
-               class="nav-link text-lg font-semibold text-slate-700 hover:text-indigo-600 py-3 border-b border-slate-100">
+               class="nav-link font-medium text-slate-700 hover:text-indigo-600 hover:bg-indigo-50 py-3 px-4 rounded-lg transition-colors">
               Institutions
             </a>
             <a href="javascript:void(0)" 
                onclick="navigateTo('naac'); toggleMobileMenu();" 
-               class="nav-link text-lg font-semibold text-slate-700 hover:text-indigo-600 py-3 border-b border-slate-100">
+               class="nav-link font-medium text-slate-700 hover:text-indigo-600 hover:bg-indigo-50 py-3 px-4 rounded-lg transition-colors">
               NAAC Readiness
             </a>
             <a href="javascript:void(0)" 
                onclick="navigateTo('about'); toggleMobileMenu();" 
-               class="nav-link text-lg font-semibold text-slate-700 hover:text-indigo-600 py-3 border-b border-slate-100">
+               class="nav-link font-medium text-slate-700 hover:text-indigo-600 hover:bg-indigo-50 py-3 px-4 rounded-lg transition-colors">
               About
             </a>
-            <button 
-              onclick="navigateTo('joinpilot'); toggleMobileMenu();" 
-              class="mt-4 w-full bg-indigo-600 text-white px-6 py-4 rounded-2xl font-bold shadow-md hover:bg-indigo-700 transition-all">
-              Join the Pilot
-            </button>
+            <div class="pt-3 mt-2 border-t border-slate-100">
+              <button 
+                onclick="navigateTo('joinpilot'); toggleMobileMenu();" 
+                class="w-full bg-indigo-600 text-white px-4 py-3 rounded-xl font-bold hover:bg-indigo-700 transition-all">
+                Join the Pilot
+              </button>
+            </div>
           </div>
         </div>
       </nav>
