@@ -6,20 +6,20 @@
 import { Page } from './Page.js';
 
 export class StudentsPage extends Page {
-  constructor(props = {}) {
-    super({
-      ...props,
-      pageId: 'students',
-      title: 'For Students | ScholarShare',
-      bgClass: 'bg-slate-50'
-    });
-  }
+    constructor(props = {}) {
+        super({
+            ...props,
+            pageId: 'students',
+            title: 'For Students | ScholarShare',
+            bgClass: 'bg-slate-50'
+        });
+    }
 
-  /**
-   * Render the desktop layout (unchanged from original)
-   */
-  renderDesktopLayout() {
-    return `
+    /**
+     * Render the desktop layout (unchanged from original)
+     */
+    renderDesktopLayout() {
+        return `
       <div class="pt-32 pb-20">
         <div class="max-w-7xl mx-auto px-6">
           <!-- Header Card -->
@@ -181,14 +181,14 @@ export class StudentsPage extends Page {
         </div>
       </div>
     `;
-  }
+    }
 
-  /**
-   * Render the mobile-optimized layout (premium experience-first design)
-   * Crafted to match the artistry of the desktop view
-   */
-  renderMobileLayout() {
-    return `
+    /**
+     * Render the mobile-optimized layout (premium experience-first design)
+     * Crafted to match the artistry of the desktop view
+     */
+    renderMobileLayout() {
+        return `
       <div class="mobile-fade-in overflow-hidden">
         <!-- Hero + Quote Combined Section - Seamless Flow -->
         <section class="relative pt-24 pb-6 px-5 overflow-hidden bg-gradient-to-b from-white via-indigo-50/30 to-white">
@@ -445,10 +445,10 @@ export class StudentsPage extends Page {
         </section>
       </div>
     `;
-  }
+    }
 
-  render() {
-    const content = `
+    render() {
+        const content = `
       <!-- Desktop Layout (hidden on mobile) -->
       <div class="hidden md:block">
         ${this.renderDesktopLayout()}
@@ -460,7 +460,7 @@ export class StudentsPage extends Page {
       </div>
     `;
 
-    return this.renderPage(content);
-  }
+        return this.renderPage(content);
+    }
 }
 

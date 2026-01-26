@@ -7,20 +7,20 @@
 import { Page } from './Page.js';
 
 export class AboutPage extends Page {
-  constructor(props = {}) {
-    super({
-      ...props,
-      pageId: 'about',
-      title: 'About | ScholarShare',
-      bgClass: 'bg-slate-50'
-    });
-  }
+    constructor(props = {}) {
+        super({
+            ...props,
+            pageId: 'about',
+            title: 'About | ScholarShare',
+            bgClass: 'bg-slate-50'
+        });
+    }
 
-  /**
-   * Render the desktop layout (unchanged from original)
-   */
-  renderDesktopLayout() {
-    return `
+    /**
+     * Render the desktop layout (unchanged from original)
+     */
+    renderDesktopLayout() {
+        return `
       <div class="pt-32 pb-20">
         <div class="max-w-4xl mx-auto px-6">
           <div class="text-center mb-16">
@@ -161,13 +161,13 @@ export class AboutPage extends Page {
         </div>
       </div>
     `;
-  }
+    }
 
-  /**
-   * Render the mobile-optimized layout (premium crafted experience)
-   */
-  renderMobileLayout() {
-    return `
+    /**
+     * Render the mobile-optimized layout (premium crafted experience)
+     */
+    renderMobileLayout() {
+        return `
       <div class="pt-20 bg-slate-50 overflow-hidden">
         <!-- Immersive Hero with Decorative Elements -->
         <div class="relative px-4 mb-8 text-center">
@@ -408,10 +408,10 @@ export class AboutPage extends Page {
         </div>
       </div>
     `;
-  }
+    }
 
-  render() {
-    const content = `
+    render() {
+        const content = `
       <!-- Desktop Layout (hidden on mobile) -->
       <div class="hidden md:block">
         ${this.renderDesktopLayout()}
@@ -423,6 +423,6 @@ export class AboutPage extends Page {
       </div>
     `;
 
-    return this.renderPage(content);
-  }
+        return this.renderPage(content);
+    }
 }

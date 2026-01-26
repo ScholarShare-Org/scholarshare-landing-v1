@@ -6,20 +6,20 @@
 import { Page } from './Page.js';
 
 export class InstitutionsPage extends Page {
-  constructor(props = {}) {
-    super({
-      ...props,
-      pageId: 'institutions',
-      title: 'For Institutions | ScholarShare',
-      bgClass: 'bg-slate-900'
-    });
-  }
+    constructor(props = {}) {
+        super({
+            ...props,
+            pageId: 'institutions',
+            title: 'For Institutions | ScholarShare',
+            bgClass: 'bg-slate-900'
+        });
+    }
 
-  /**
-   * Render the desktop layout (unchanged from original)
-   */
-  renderDesktopLayout() {
-    return `
+    /**
+     * Render the desktop layout (unchanged from original)
+     */
+    renderDesktopLayout() {
+        return `
       <div class="pt-32 pb-20">
         <div class="max-w-7xl mx-auto px-6">
           <!-- Institutional Header -->
@@ -576,13 +576,13 @@ export class InstitutionsPage extends Page {
         </div>
       </div>
     `;
-  }
+    }
 
-  /**
-   * Render the mobile-optimized layout (experience-first design)
-   */
-  renderMobileLayout() {
-    return `
+    /**
+     * Render the mobile-optimized layout (experience-first design)
+     */
+    renderMobileLayout() {
+        return `
       <div class="pt-24 mobile-fade-in bg-slate-900">
         <!-- Mobile Hero with Glow -->
         <div class="px-4 mb-4 mobile-hero-glow">
@@ -813,10 +813,10 @@ export class InstitutionsPage extends Page {
         </div>
       </div>
     `;
-  }
+    }
 
-  render() {
-    const content = `
+    render() {
+        const content = `
       <!-- Desktop Layout (hidden on mobile) -->
       <div class="hidden md:block">
         ${this.renderDesktopLayout()}
@@ -828,6 +828,6 @@ export class InstitutionsPage extends Page {
       </div>
     `;
 
-    return this.renderPage(content);
-  }
+        return this.renderPage(content);
+    }
 }

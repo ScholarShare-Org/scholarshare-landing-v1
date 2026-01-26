@@ -6,20 +6,20 @@
 import { Page } from './Page.js';
 
 export class CompliancePage extends Page {
-  constructor(props = {}) {
-    super({
-      ...props,
-      pageId: 'compliance',
-      title: 'Regulatory Compliance | ScholarShare',
-      bgClass: 'bg-slate-50'
-    });
-  }
+    constructor(props = {}) {
+        super({
+            ...props,
+            pageId: 'compliance',
+            title: 'Regulatory Compliance | ScholarShare',
+            bgClass: 'bg-slate-50'
+        });
+    }
 
-  /**
-   * Render the desktop layout (unchanged from original)
-   */
-  renderDesktopLayout() {
-    return `
+    /**
+     * Render the desktop layout (unchanged from original)
+     */
+    renderDesktopLayout() {
+        return `
       <div class="pt-32 pb-20">
         <div class="max-w-7xl mx-auto px-6">
           <div class="text-center mb-16">
@@ -51,13 +51,13 @@ export class CompliancePage extends Page {
         </div>
       </div>
     `;
-  }
+    }
 
-  /**
-   * Render the mobile-optimized layout
-   */
-  renderMobileLayout() {
-    return `
+    /**
+     * Render the mobile-optimized layout
+     */
+    renderMobileLayout() {
+        return `
       <div class="pt-20 pb-24 mobile-fade-in">
         <!-- Mobile Hero -->
         <div class="px-4 mb-6 text-center">
@@ -95,10 +95,10 @@ export class CompliancePage extends Page {
         </div>
       </div>
     `;
-  }
+    }
 
-  render() {
-    const content = `
+    render() {
+        const content = `
       <!-- Desktop Layout (hidden on mobile) -->
       <div class="hidden md:block">
         ${this.renderDesktopLayout()}
@@ -110,6 +110,6 @@ export class CompliancePage extends Page {
       </div>
     `;
 
-    return this.renderPage(content);
-  }
+        return this.renderPage(content);
+    }
 }

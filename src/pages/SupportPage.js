@@ -6,33 +6,33 @@
 import { Page } from './Page.js';
 
 export class SupportPage extends Page {
-  constructor(props = {}) {
-    super({
-      ...props,
-      pageId: 'support',
-      title: 'Support | ScholarShare',
-      bgClass: 'bg-white'
-    });
-  }
-
-  afterRender() {
-    // Setup form submission handler
-    const form = document.querySelector('#support-form');
-    if (form) {
-      form.addEventListener('submit', this.handleSubmit.bind(this));
+    constructor(props = {}) {
+        super({
+            ...props,
+            pageId: 'support',
+            title: 'Support | ScholarShare',
+            bgClass: 'bg-white'
+        });
     }
-  }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    alert('Thank you for your inquiry! Our team will respond within 24 hours.');
-  }
+    afterRender() {
+        // Setup form submission handler
+        const form = document.querySelector('#support-form');
+        if (form) {
+            form.addEventListener('submit', this.handleSubmit.bind(this));
+        }
+    }
 
-  /**
-   * Render the desktop layout (unchanged from original)
-   */
-  renderDesktopLayout() {
-    return `
+    handleSubmit(e) {
+        e.preventDefault();
+        alert('Thank you for your inquiry! Our team will respond within 24 hours.');
+    }
+
+    /**
+     * Render the desktop layout (unchanged from original)
+     */
+    renderDesktopLayout() {
+        return `
       <div class="pt-32 pb-20">
         <div class="max-w-5xl mx-auto px-6">
           <div class="text-center mb-20">
@@ -102,13 +102,13 @@ export class SupportPage extends Page {
         </div>
       </div>
     `;
-  }
+    }
 
-  /**
-   * Render the mobile-optimized layout
-   */
-  renderMobileLayout() {
-    return `
+    /**
+     * Render the mobile-optimized layout
+     */
+    renderMobileLayout() {
+        return `
       <div class="pt-24 pb-16 mobile-fade-in">
         <!-- Mobile Hero -->
         <div class="px-4 mb-6 text-center">
@@ -169,10 +169,10 @@ export class SupportPage extends Page {
         </div>
       </div>
     `;
-  }
+    }
 
-  render() {
-    const content = `
+    render() {
+        const content = `
       <!-- Desktop Layout (hidden on mobile) -->
       <div class="hidden md:block">
         ${this.renderDesktopLayout()}
@@ -184,6 +184,6 @@ export class SupportPage extends Page {
       </div>
     `;
 
-    return this.renderPage(content);
-  }
+        return this.renderPage(content);
+    }
 }
