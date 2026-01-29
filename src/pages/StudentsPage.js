@@ -311,7 +311,7 @@ export class StudentsPage extends Page {
               </div>
               <div class="bg-purple-50 rounded-xl p-4 flex items-center gap-3 border border-purple-100">
                 <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white">
-                  <i class="fas fa-graduation-cap"></i>
+                  <img src="/LOGO_ICON-transparent.png" class="w-5 h-5 object-contain brightness-0 invert" alt="Mentorship Icon">
                 </div>
                 <div>
                   <div class="font-extrabold text-lg text-slate-900">P2P</div>
@@ -347,7 +347,7 @@ export class StudentsPage extends Page {
                   </div>
                   <div class="flex items-center gap-4 p-4 rounded-2xl bg-purple-50 border border-purple-100">
                     <div class="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center text-white" aria-hidden="true">
-                      <i class="fas fa-graduation-cap"></i>
+                      <img src="/LOGO_ICON-transparent.png" class="w-5 h-5 object-contain brightness-0 invert" alt="Mentorship Icon">
                     </div>
                     <span class="font-bold">Peer-to-Peer Mentorship</span>
                   </div>

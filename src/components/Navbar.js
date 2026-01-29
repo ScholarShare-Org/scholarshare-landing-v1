@@ -68,9 +68,10 @@ export class Navbar extends Component {
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <!-- Logo -->
           <div class="flex items-center gap-2 cursor-pointer" onclick="navigateTo('home')" role="button" aria-label="Go to home page" tabindex="0">
-            <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg" aria-hidden="true">
-              <i class="fas fa-graduation-cap"></i>
-            </div>
+            <img src="/LOGO_ICON-transparent.png" 
+                 alt="ScholarShare Logo" 
+                 class="w-10 h-10 object-contain"
+                 aria-hidden="true">
             <span class="text-2xl font-extrabold tracking-tight text-slate-900">
               Scholar<span class="text-indigo-600">Share</span>
             </span>

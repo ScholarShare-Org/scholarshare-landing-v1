@@ -21,9 +21,10 @@ export class Footer extends Component {
           <!-- Company Info -->
           <div class="col-span-2 lg:col-span-2">
             <div class="flex items-center gap-2 mb-6 cursor-pointer" onclick="navigateTo('home')" role="button" aria-label="Go to home page">
-              <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white" aria-hidden="true">
-                <i class="fas fa-graduation-cap"></i>
-              </div>
+              <img src="/LOGO_ICON-transparent.png" 
+                   alt="ScholarShare Logo" 
+                   class="w-8 h-8 object-contain"
+                   aria-hidden="true">
               <span class="text-2xl font-extrabold tracking-tight text-white">ScholarShare</span>
             </div>
             <p class="max-w-xs mb-8 text-slate-500 leading-relaxed">
@@ -154,9 +155,10 @@ export class Footer extends Component {
           <!-- Logo & Description -->
           <div class="text-center py-4 mb-6 border-b border-slate-800">
             <div class="flex items-center justify-center gap-2 mb-2" onclick="navigateTo('home')">
-              <div class="w-9 h-9 bg-indigo-600 rounded-lg flex items-center justify-center text-white">
-                <i class="fas fa-graduation-cap text-sm"></i>
-              </div>
+              <img src="/LOGO_ICON-transparent.png" 
+                   alt="ScholarShare Logo" 
+                   class="w-9 h-9 object-contain"
+                   aria-hidden="true">
               <span class="text-lg font-bold text-white">ScholarShare</span>
             </div>
             <p class="text-slate-500 text-xs max-w-xs mx-auto">India's first opportunity & institutional intelligence platform.</p>
