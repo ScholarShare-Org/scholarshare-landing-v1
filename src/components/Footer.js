@@ -21,9 +21,9 @@ export class Footer extends Component {
           <!-- Company Info -->
           <div class="col-span-2 lg:col-span-2">
             <div class="flex items-center gap-2 mb-6 cursor-pointer" onclick="navigateTo('home')" role="button" aria-label="Go to home page">
-              <img src="/LOGO_ICON-transparent.png" 
+              <img src="/LOGO_ICON.png" 
                    alt="ScholarShare Logo" 
-                   class="w-8 h-8 object-contain"
+                   class="w-8 h-8 object-contain rounded-lg shadow-sm"
                    aria-hidden="true">
               <span class="text-2xl font-extrabold tracking-tight text-white">ScholarShare</span>
             </div>
@@ -155,9 +155,9 @@ export class Footer extends Component {
           <!-- Logo & Description -->
           <div class="text-center py-4 mb-6 border-b border-slate-800">
             <div class="flex items-center justify-center gap-2 mb-2" onclick="navigateTo('home')">
-              <img src="/LOGO_ICON-transparent.png" 
+              <img src="/LOGO_ICON.png" 
                    alt="ScholarShare Logo" 
-                   class="w-9 h-9 object-contain"
+                   class="w-7 h-7 object-contain rounded-md shadow-sm"
                    aria-hidden="true">
               <span class="text-lg font-bold text-white">ScholarShare</span>
             </div>

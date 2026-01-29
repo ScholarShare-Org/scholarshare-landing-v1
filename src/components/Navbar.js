@@ -70,7 +70,7 @@ export class Navbar extends Component {
           <div class="flex items-center gap-2 cursor-pointer" onclick="navigateTo('home')" role="button" aria-label="Go to home page" tabindex="0">
             <img src="/LOGO_ICON-transparent.png" 
                  alt="ScholarShare Logo" 
-                 class="w-10 h-10 object-contain"
+                 class="w-8 h-8 md:w-10 md:h-10 object-contain"
                  aria-hidden="true">
             <span class="text-2xl font-extrabold tracking-tight text-slate-900">
               Scholar<span class="text-indigo-600">Share</span>
@@ -133,32 +133,45 @@ export class Navbar extends Component {
         </div>
         
         <!-- Mobile Dropdown Menu - Simple dropdown below navbar -->
-        <div id="mobile-menu" class="lg:hidden hidden absolute left-0 right-0 top-full bg-white shadow-xl border-t border-slate-100">
+        <div id="mobile-menu" class="lg:hidden hidden absolute left-0 right-0 top-full bg-white shadow-xl border-t border-slate-100 overflow-y-auto max-h-[85vh]">
           <div class="flex flex-col p-4">
-            <a href="javascript:void(0)" 
-               onclick="navigateTo('students'); toggleMobileMenu();" 
-               class="nav-link font-medium text-slate-700 hover:text-indigo-600 hover:bg-indigo-50 py-3 px-4 rounded-lg transition-colors">
+            <!-- Primary Links -->
+            <a href="javascript:void(0)" onclick="navigateTo('students'); toggleMobileMenu();" class="nav-link font-bold text-slate-800 hover:text-indigo-600 hover:bg-indigo-50 py-3 px-4 rounded-xl transition-colors">
               Students
             </a>
-            <a href="javascript:void(0)" 
-               onclick="navigateTo('institutions'); toggleMobileMenu();" 
-               class="nav-link font-medium text-slate-700 hover:text-indigo-600 hover:bg-indigo-50 py-3 px-4 rounded-lg transition-colors">
+            <a href="javascript:void(0)" onclick="navigateTo('institutions'); toggleMobileMenu();" class="nav-link font-bold text-slate-800 hover:text-indigo-600 hover:bg-indigo-50 py-3 px-4 rounded-xl transition-colors">
               Institutions
             </a>
-            <a href="javascript:void(0)" 
-               onclick="navigateTo('naac'); toggleMobileMenu();" 
-               class="nav-link font-medium text-slate-700 hover:text-indigo-600 hover:bg-indigo-50 py-3 px-4 rounded-lg transition-colors">
+            <a href="javascript:void(0)" onclick="navigateTo('naac'); toggleMobileMenu();" class="nav-link font-bold text-slate-800 hover:text-indigo-600 hover:bg-indigo-50 py-3 px-4 rounded-xl transition-colors">
               NAAC Readiness
             </a>
-            <a href="javascript:void(0)" 
-               onclick="navigateTo('about'); toggleMobileMenu();" 
-               class="nav-link font-medium text-slate-700 hover:text-indigo-600 hover:bg-indigo-50 py-3 px-4 rounded-lg transition-colors">
+            <a href="javascript:void(0)" onclick="navigateTo('about'); toggleMobileMenu();" class="nav-link font-bold text-slate-800 hover:text-indigo-600 hover:bg-indigo-50 py-3 px-4 rounded-xl transition-colors">
               About
             </a>
-            <div class="pt-3 mt-2 border-t border-slate-100">
-              <button 
-                onclick="navigateTo('joinpilot'); toggleMobileMenu();" 
-                class="w-full bg-indigo-600 text-white px-4 py-3 rounded-xl font-bold hover:bg-indigo-700 transition-all">
+
+            <!-- Secondary Links Partition -->
+            <div class="mt-4 mb-2 px-4">
+              <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">Resources & Support</span>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-2">
+              <a href="javascript:void(0)" onclick="navigateTo('apaar'); toggleMobileMenu();" class="text-sm font-medium text-slate-500 hover:text-indigo-600 py-2 px-4">
+                APAAR Sync
+              </a>
+              <a href="javascript:void(0)" onclick="navigateTo('compliance'); toggleMobileMenu();" class="text-sm font-medium text-slate-500 hover:text-indigo-600 py-2 px-4">
+                Compliance
+              </a>
+              <a href="javascript:void(0)" onclick="navigateTo('security'); toggleMobileMenu();" class="text-sm font-medium text-slate-500 hover:text-indigo-600 py-2 px-4">
+                Security
+              </a>
+              <a href="javascript:void(0)" onclick="navigateTo('support'); toggleMobileMenu();" class="text-sm font-medium text-slate-500 hover:text-indigo-600 py-2 px-4">
+                Support
+              </a>
+            </div>
+
+            <!-- CTA -->
+            <div class="pt-4 mt-4 border-t border-slate-100">
+              <button onclick="navigateTo('joinpilot'); toggleMobileMenu();" class="w-full bg-indigo-600 text-white px-4 py-3.5 rounded-2xl font-bold shadow-lg shadow-indigo-100 active:scale-[0.98] transition-all">
                 Join the Pilot
               </button>
             </div>
