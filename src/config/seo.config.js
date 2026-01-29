@@ -7,7 +7,7 @@ export const siteConfig = {
     siteName: 'ScholarShare',
     siteUrl: 'https://scholarshare.in',
     defaultLocale: 'en_IN',
-    twitterHandle: '@ScholarShareIN',
+    twitterHandle: '@ScholarShare_IN',
     organizationName: 'ScholarShare Platform',
     organizationLogo: 'https://scholarshare.in/logo.png',
     themeColor: '#6366f1',
@@ -31,9 +31,9 @@ export const pagesSEO = {
             industry: 'Educational Technology',
             areaServed: 'India',
             sameAs: [
-                'https://www.linkedin.com/company/scholarshare',
-                'https://twitter.com/ScholarShareIN',
-                'https://www.instagram.com/scholarshare.in'
+                'https://www.linkedin.com/company/scholarsharein/',
+                'https://x.com/ScholarShare_IN',
+                'https://www.instagram.com/scholarshare.in/'
             ]
         }
     },

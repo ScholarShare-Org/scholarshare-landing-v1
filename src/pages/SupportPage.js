@@ -1,6 +1,8 @@
 /**
  * @fileoverview Support Page
  * Help desk requirements and contact form
+ * 
+ * Uses unified responsive layout with mobile-first approach
  */
 
 import { Page } from './Page.js';
@@ -16,11 +18,13 @@ export class SupportPage extends Page {
     }
 
     afterRender() {
-        // Setup form submission handler
-        const form = document.querySelector('#support-form');
-        if (form) {
-            form.addEventListener('submit', this.handleSubmit.bind(this));
-        }
+        // Setup form submission handler for both forms
+        const forms = document.querySelectorAll('#support-form, #support-form-mobile');
+        forms.forEach(form => {
+            if (form) {
+                form.addEventListener('submit', this.handleSubmit.bind(this));
+            }
+        });
     }
 
     handleSubmit(e) {
@@ -29,35 +33,118 @@ export class SupportPage extends Page {
     }
 
     /**
-     * Render the desktop layout (unchanged from original)
+     * Get support options data for DRY rendering
      */
-    renderDesktopLayout() {
-        return `
-      <div class="pt-32 pb-20">
-        <div class="max-w-5xl mx-auto px-6">
-          <div class="text-center mb-20">
-            <h1 class="text-5xl font-black mb-4">Get Support</h1>
-            <p class="text-slate-600 text-lg">Our team of academic consultants and technical architects is ready to assist you.</p>
-          </div>
+    get supportOptions() {
+        return [
+            {
+                title: 'Institutional Helpdesk',
+                descriptionDesktop: 'Dedicated support for IQAC Heads and College Admins during the pilot phase.',
+                descriptionMobile: 'Support for IQAC Heads and Admins.',
+                linkType: 'email',
+                linkValue: 'support@scholarshare.in',
+                icon: 'fa-envelope'
+            },
+            {
+                title: 'Student Resources',
+                descriptionDesktop: 'Having issues with APAAR sync or credit mapping? Access our student guide.',
+                descriptionMobile: 'APAAR sync or credit mapping issues?',
+                linkType: 'button',
+                linkLabel: 'View Student FAQ',
+                linkAction: "showComingSoon('Student FAQ')",
+                icon: 'fa-book'
+            }
+        ];
+    }
 
-          <div class="grid md:grid-cols-2 gap-12">
-            <div class="space-y-8">
-              <!-- Institutional Helpdesk -->
-              <article class="bg-slate-50 p-8 rounded-3xl border border-slate-200">
-                <h3 class="font-bold text-xl mb-4 text-indigo-600">Institutional Helpdesk</h3>
-                <p class="text-slate-600 mb-6">Dedicated support for IQAC Heads and College Admins during the pilot phase.</p>
-                <a href="mailto:support@scholarshare.in" class="font-bold text-slate-900 border-b-2 border-indigo-600 pb-1">support@scholarshare.in</a>
-              </article>
-              <!-- Student Resources -->
-              <article class="bg-slate-50 p-8 rounded-3xl border border-slate-200">
-                <h3 class="font-bold text-xl mb-4 text-indigo-600">Student Resources</h3>
-                <p class="text-slate-600 mb-6">Having issues with APAAR sync or credit mapping? Access our student guide.</p>
-                <button onclick="showComingSoon('Student FAQ')" class="font-bold text-slate-900 border-b-2 border-indigo-600 pb-1">View Student FAQ</button>
-              </article>
+    render() {
+        const options = this.supportOptions;
+
+        const content = `
+      <div class="pt-24 md:pt-32 pb-16 md:pb-20">
+        <div class="max-w-5xl mx-auto px-4 md:px-6">
+          
+          <!-- Hero Section -->
+          <div class="text-center mb-6 md:mb-20">
+            <!-- Mobile Title -->
+            <h1 class="mobile-hero-title md:hidden mb-2">Get Support</h1>
+            <!-- Desktop Title -->
+            <h1 class="hidden md:block text-5xl font-black mb-4">Get Support</h1>
+            
+            <!-- Mobile Subtitle -->
+            <p class="md:hidden text-slate-500 text-sm">Academic consultants & technical architects ready to help.</p>
+            <!-- Desktop Subtitle -->
+            <p class="hidden md:block text-slate-600 text-lg">Our team of academic consultants and technical architects is ready to assist you.</p>
+          </div>
+          
+          <!-- Main Content Grid -->
+          <div class="grid md:grid-cols-2 gap-6 md:gap-12">
+            
+            <!-- Support Options -->
+            <div class="space-y-3 md:space-y-8">
+              ${options.map(option => `
+                <!-- ${option.title} -->
+                
+                <!-- Mobile Card -->
+                <div class="mobile-card md:hidden">
+                  <h3 class="font-bold text-base text-indigo-600 mb-2">${option.title}</h3>
+                  <p class="text-sm text-slate-600 mb-3">${option.descriptionMobile}</p>
+                  ${option.linkType === 'email'
+                ? `<a href="mailto:${option.linkValue}" class="mobile-btn-secondary text-sm py-3 block text-center">
+                         <i class="fas ${option.icon} mr-2"></i>${option.linkValue}
+                       </a>`
+                : `<button onclick="${option.linkAction}" class="mobile-btn-secondary text-sm py-3 w-full">
+                         <i class="fas ${option.icon} mr-2"></i>${option.linkLabel}
+                       </button>`
+            }
+                </div>
+                
+                <!-- Desktop Card -->
+                <article class="hidden md:block bg-slate-50 p-8 rounded-3xl border border-slate-200">
+                  <h3 class="font-bold text-xl mb-4 text-indigo-600">${option.title}</h3>
+                  <p class="text-slate-600 mb-6">${option.descriptionDesktop}</p>
+                  ${option.linkType === 'email'
+                ? `<a href="mailto:${option.linkValue}" class="font-bold text-slate-900 border-b-2 border-indigo-600 pb-1">${option.linkValue}</a>`
+                : `<button onclick="${option.linkAction}" class="font-bold text-slate-900 border-b-2 border-indigo-600 pb-1">${option.linkLabel}</button>`
+            }
+                </article>
+              `).join('')}
             </div>
             
-            <!-- Direct Inquiry Form -->
-            <div class="bg-indigo-600 p-10 rounded-[3rem] text-white">
+            <!-- Inquiry Form -->
+            <!-- Mobile Form -->
+            <div class="md:hidden bg-indigo-600 rounded-2xl p-5 text-white">
+              <h3 class="font-bold text-lg mb-4">Direct Inquiry</h3>
+              <form id="support-form-mobile" class="space-y-3">
+                <input 
+                  type="text" 
+                  name="name"
+                  placeholder="Name" 
+                  class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 placeholder-white/50 text-sm focus:outline-none"
+                  required
+                >
+                <input 
+                  type="email" 
+                  name="email"
+                  placeholder="Email" 
+                  class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 placeholder-white/50 text-sm focus:outline-none"
+                  required
+                >
+                <textarea 
+                  name="message"
+                  placeholder="Your Message" 
+                  rows="3" 
+                  class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 placeholder-white/50 text-sm focus:outline-none"
+                  required
+                ></textarea>
+                <button type="submit" class="w-full bg-white text-indigo-600 font-bold py-3 rounded-xl">
+                  Send Inquiry
+                </button>
+              </form>
+            </div>
+            
+            <!-- Desktop Form -->
+            <div class="hidden md:block bg-indigo-600 p-10 rounded-[3rem] text-white">
               <h3 class="text-2xl font-black mb-6">Direct Inquiry</h3>
               <form id="support-form" class="space-y-4">
                 <div>
@@ -98,89 +185,9 @@ export class SupportPage extends Page {
                 </button>
               </form>
             </div>
+            
           </div>
         </div>
-      </div>
-    `;
-    }
-
-    /**
-     * Render the mobile-optimized layout
-     */
-    renderMobileLayout() {
-        return `
-      <div class="pt-24 pb-16 mobile-fade-in">
-        <!-- Mobile Hero -->
-        <div class="px-4 mb-6 text-center">
-          <h1 class="mobile-hero-title mb-2">Get Support</h1>
-          <p class="text-slate-500 text-sm">Academic consultants & technical architects ready to help.</p>
-        </div>
-
-        <!-- Contact Options -->
-        <div class="px-4 space-y-3 mb-6">
-          <div class="mobile-card">
-            <h3 class="font-bold text-base text-indigo-600 mb-2">Institutional Helpdesk</h3>
-            <p class="text-sm text-slate-600 mb-3">Support for IQAC Heads and Admins.</p>
-            <a href="mailto:support@scholarshare.in" class="mobile-btn-secondary text-sm py-3 block text-center">
-              <i class="fas fa-envelope mr-2"></i>support@scholarshare.in
-            </a>
-          </div>
-          
-          <div class="mobile-card">
-            <h3 class="font-bold text-base text-indigo-600 mb-2">Student Resources</h3>
-            <p class="text-sm text-slate-600 mb-3">APAAR sync or credit mapping issues?</p>
-            <button onclick="showComingSoon('Student FAQ')" class="mobile-btn-secondary text-sm py-3 w-full">
-              <i class="fas fa-book mr-2"></i>View Student FAQ
-            </button>
-          </div>
-        </div>
-
-        <!-- Mobile Inquiry Form -->
-        <div class="px-4">
-          <div class="bg-indigo-600 rounded-2xl p-5 text-white">
-            <h3 class="font-bold text-lg mb-4">Direct Inquiry</h3>
-            <form id="support-form-mobile" class="space-y-3">
-              <input 
-                type="text" 
-                name="name"
-                placeholder="Name" 
-                class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 placeholder-white/50 text-sm focus:outline-none"
-                required
-              >
-              <input 
-                type="email" 
-                name="email"
-                placeholder="Email" 
-                class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 placeholder-white/50 text-sm focus:outline-none"
-                required
-              >
-              <textarea 
-                name="message"
-                placeholder="Your Message" 
-                rows="3" 
-                class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 placeholder-white/50 text-sm focus:outline-none"
-                required
-              ></textarea>
-              <button type="submit" class="w-full bg-white text-indigo-600 font-bold py-3 rounded-xl">
-                Send Inquiry
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    `;
-    }
-
-    render() {
-        const content = `
-      <!-- Desktop Layout (hidden on mobile) -->
-      <div class="hidden md:block">
-        ${this.renderDesktopLayout()}
-      </div>
-      
-      <!-- Mobile Layout (hidden on desktop) -->
-      <div class="block md:hidden">
-        ${this.renderMobileLayout()}
       </div>
     `;
 

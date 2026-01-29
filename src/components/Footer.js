@@ -31,21 +31,21 @@ export class Footer extends Component {
             </p>
             <!-- Social Links -->
             <div class="flex gap-4" aria-label="Social media links">
-              <a href="https://linkedin.com/company/scholarshare" 
+              <a href="https://www.linkedin.com/company/scholarsharein/" 
                  target="_blank" 
                  rel="noopener noreferrer"
                  class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition-all" 
                  aria-label="Follow us on LinkedIn">
                 <i class="fab fa-linkedin-in" aria-hidden="true"></i>
               </a>
-              <a href="https://twitter.com/ScholarShareIN" 
+              <a href="https://x.com/ScholarShare_IN" 
                  target="_blank" 
                  rel="noopener noreferrer"
                  class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition-all" 
-                 aria-label="Follow us on Twitter">
-                <i class="fab fa-twitter" aria-hidden="true"></i>
+                 aria-label="Follow us on X">
+                <i class="fab fa-x-twitter" aria-hidden="true"></i>
               </a>
-              <a href="https://instagram.com/scholarshare.in" 
+              <a href="https://www.instagram.com/scholarshare.in/" 
                  target="_blank" 
                  rel="noopener noreferrer"
                  class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition-all" 
@@ -183,15 +183,15 @@ export class Footer extends Component {
           
           <!-- Social Links -->
           <div class="flex justify-center gap-3 mb-6">
-            <a href="https://linkedin.com/company/scholarshare" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.linkedin.com/company/scholarsharein/" target="_blank" rel="noopener noreferrer"
                class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-indigo-600 hover:text-white transition-all">
               <i class="fab fa-linkedin-in text-sm"></i>
             </a>
-            <a href="https://twitter.com/ScholarShareIN" target="_blank" rel="noopener noreferrer"
+            <a href="https://x.com/ScholarShare_IN" target="_blank" rel="noopener noreferrer"
                class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-indigo-600 hover:text-white transition-all">
-              <i class="fab fa-twitter text-sm"></i>
+              <i class="fab fa-x-twitter text-sm"></i>
             </a>
-            <a href="https://instagram.com/scholarshare.in" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.instagram.com/scholarshare.in/" target="_blank" rel="noopener noreferrer"
                class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-indigo-600 hover:text-white transition-all">
               <i class="fab fa-instagram text-sm"></i>
             </a>

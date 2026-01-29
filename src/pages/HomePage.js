@@ -1,6 +1,8 @@
 /**
  * @fileoverview Home Page
  * Main landing page with hero, dual split, intelligence section, and pilot CTA
+ * 
+ * Uses unified responsive layout with mobile-first approach
  */
 
 import { Page } from './Page.js';
@@ -17,29 +19,49 @@ export class HomePage extends Page {
     }
 
     /**
-     * Render the desktop layout (using existing sections)
+     * Get feature cards data for mobile grid
      */
-    renderDesktopLayout() {
+    get featureCards() {
+        return [
+            { icon: 'fa-check-circle', iconBg: 'bg-green-100', iconColor: 'text-green-600', title: 'Verified Gigs', desc: 'ABC/APAAR credits', bgClass: 'bg-white', delay: '' },
+            { icon: 'fa-chart-line', iconBg: 'bg-white/10', iconColor: 'text-white', title: 'NAAC IQAC', desc: 'Real-time Reports', bgClass: 'bg-slate-900 text-white mt-6', delay: '0.3s' },
+            { icon: 'fa-robot', iconBg: 'bg-white/20', iconColor: 'text-white', title: 'AI Feed', desc: 'Career discovery', bgClass: 'bg-indigo-600 text-white', delay: '0.15s' },
+            { icon: 'fa-university', iconBg: 'bg-blue-100', iconColor: 'text-blue-600', title: 'Campus TV', desc: 'Talent telecasting', bgClass: 'bg-white mt-6 border border-slate-100', delay: '0.45s' }
+        ];
+    }
+
+    /**
+     * Get intelligence icons for mobile section
+     */
+    get intelligenceItems() {
+        return [
+            { icon: 'fa-file-invoice', label: 'AQAR Auto' },
+            { icon: 'fa-users-cog', label: 'Dashboard' },
+            { icon: 'fa-arrow-right', label: 'See All', highlighted: true }
+        ];
+    }
+
+    render() {
+        const cards = this.featureCards;
+        const intelItems = this.intelligenceItems;
+
+        // Desktop uses component-based sections
         const hero = new HeroSection();
         const dualSplit = new DualSplitSection();
         const intelligence = new IntelligenceSection();
         const pilotCTA = new PilotCTASection();
 
-        return `
-            ${hero.render()}
-            ${dualSplit.render()}
-            ${intelligence.render()}
-            ${pilotCTA.render()}
-        `;
-    }
-
-    /**
-     * Render the mobile-optimized layout (premium experience-first design)
-     * Crafted to match the artistry of the desktop view
-     */
-    renderMobileLayout() {
-        return `
-            <div class="mobile-fade-in overflow-hidden">
+        const content = `
+            <!-- Desktop Layout (hidden on mobile) -->
+            <div class="hidden md:block">
+                ${hero.render()}
+                ${dualSplit.render()}
+                ${intelligence.render()}
+                ${pilotCTA.render()}
+            </div>
+            
+            <!-- Mobile Layout (hidden on desktop) -->
+            <div class="md:hidden mobile-fade-in overflow-hidden">
                 <!-- Hero Section - Immersive with Depth -->
                 <section class="relative pt-24 pb-12 px-5 overflow-hidden">
                     <!-- Background Blur Orbs for Depth -->
@@ -101,41 +123,15 @@ export class HomePage extends Page {
                     <div class="absolute bottom-0 right-0 w-40 h-40 bg-indigo-200 rounded-full blur-3xl opacity-40 pointer-events-none" aria-hidden="true"></div>
                     
                     <div class="grid grid-cols-2 gap-3 relative z-10">
-                        <!-- Card 1: Verified Gigs - White -->
-                        <div class="bg-white p-5 rounded-3xl shadow-xl floating">
-                            <div class="w-11 h-11 bg-green-100 text-green-600 rounded-xl flex items-center justify-center mb-3 text-lg">
-                                <i class="fas fa-check-circle"></i>
+                        ${cards.map((card, i) => `
+                            <div class="${card.bgClass} p-5 rounded-3xl shadow-xl floating" ${card.delay ? `style="animation-delay: ${card.delay};"` : ''}>
+                                <div class="w-11 h-11 ${card.iconBg} ${card.iconColor} rounded-xl flex items-center justify-center mb-3 text-lg">
+                                    <i class="fas ${card.icon}"></i>
+                                </div>
+                                <h4 class="font-bold text-sm ${card.bgClass.includes('text-white') ? '' : 'text-slate-800'}">${card.title}</h4>
+                                <p class="text-xs ${card.bgClass.includes('text-white') ? 'text-white/60' : 'text-slate-500'} mt-1">${card.desc}</p>
                             </div>
-                            <h4 class="font-bold text-slate-800 text-sm">Verified Gigs</h4>
-                            <p class="text-xs text-slate-500 mt-1">ABC/APAAR credits</p>
-                        </div>
-                        
-                        <!-- Card 2: NAAC IQAC - Dark -->
-                        <div class="bg-slate-900 p-5 rounded-3xl shadow-xl mt-6 text-white floating" style="animation-delay: 0.3s;">
-                            <div class="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center mb-3 text-lg">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h4 class="font-bold text-sm">NAAC IQAC</h4>
-                            <p class="text-xs text-white/60 mt-1">Real-time Reports</p>
-                        </div>
-                        
-                        <!-- Card 3: AI Feed - Gradient -->
-                        <div class="bg-indigo-600 p-5 rounded-3xl shadow-xl text-white floating" style="animation-delay: 0.15s;">
-                            <div class="w-11 h-11 bg-white/20 rounded-xl flex items-center justify-center mb-3 text-lg">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <h4 class="font-bold text-sm">AI Feed</h4>
-                            <p class="text-xs text-white/70 mt-1">Career discovery</p>
-                        </div>
-                        
-                        <!-- Card 4: Campus TV - White with border -->
-                        <div class="bg-white p-5 rounded-3xl shadow-xl mt-6 border border-slate-100 floating" style="animation-delay: 0.45s;">
-                            <div class="w-11 h-11 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-3 text-lg">
-                                <i class="fas fa-university"></i>
-                            </div>
-                            <h4 class="font-bold text-slate-800 text-sm">Campus TV</h4>
-                            <p class="text-xs text-slate-500 mt-1">Talent telecasting</p>
-                        </div>
+                        `).join('')}
                     </div>
                 </section>
 
@@ -200,24 +196,14 @@ export class HomePage extends Page {
                     </p>
                     
                     <div class="grid grid-cols-3 gap-3">
-                        <div class="bg-white p-4 rounded-2xl shadow-md border border-slate-100 text-center">
-                            <div class="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center mx-auto mb-2 text-indigo-600 text-lg">
-                                <i class="fas fa-file-invoice"></i>
+                        ${intelItems.map(item => `
+                            <div class="bg-white p-4 rounded-2xl shadow-md border border-slate-100 text-center" ${item.highlighted ? 'onclick="navigateTo(\'naac\')"' : ''}>
+                                <div class="w-10 h-10 ${item.highlighted ? 'bg-indigo-600 text-white' : 'bg-slate-50 text-indigo-600'} rounded-xl flex items-center justify-center mx-auto mb-2 text-lg">
+                                    <i class="fas ${item.icon}"></i>
+                                </div>
+                                <div class="text-xs font-bold ${item.highlighted ? 'text-indigo-600' : 'text-slate-700'}">${item.label}</div>
                             </div>
-                            <div class="text-xs font-bold text-slate-700">AQAR Auto</div>
-                        </div>
-                        <div class="bg-white p-4 rounded-2xl shadow-md border border-slate-100 text-center">
-                            <div class="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center mx-auto mb-2 text-indigo-600 text-lg">
-                                <i class="fas fa-users-cog"></i>
-                            </div>
-                            <div class="text-xs font-bold text-slate-700">Dashboard</div>
-                        </div>
-                        <div class="bg-white p-4 rounded-2xl shadow-md border border-slate-100 text-center" onclick="navigateTo('naac')">
-                            <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-2 text-white text-lg">
-                                <i class="fas fa-arrow-right"></i>
-                            </div>
-                            <div class="text-xs font-bold text-indigo-600">See All</div>
-                        </div>
+                        `).join('')}
                     </div>
                 </section>
 
@@ -236,20 +222,6 @@ export class HomePage extends Page {
                         </button>
                     </div>
                 </section>
-            </div>
-        `;
-    }
-
-    render() {
-        const content = `
-            <!-- Desktop Layout (hidden on mobile) -->
-            <div class="hidden md:block">
-                ${this.renderDesktopLayout()}
-            </div>
-            
-            <!-- Mobile Layout (hidden on desktop) -->
-            <div class="block md:hidden">
-                ${this.renderMobileLayout()}
             </div>
         `;
 

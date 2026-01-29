@@ -133,6 +133,13 @@ class ScholarShareApp {
                 if (this.navbar) {
                     this.navbar.setActiveRoute(routeId);
                 }
+            },
+            notFoundHandler: (invalidRouteId) => {
+                console.warn(`Route not found: ${invalidRouteId}, showing 404 page`);
+                // Activate the 404 page
+                this.activatePage('notfound');
+                // Update current route tracking
+                this.router.currentRoute = 'notfound';
             }
         });
 
