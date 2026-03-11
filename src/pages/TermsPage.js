@@ -186,14 +186,14 @@ export class TermsPage extends Page {
           <!-- Sections -->
           <!-- Mobile Sections -->
           <div class="md:hidden space-y-4">
-            ${sections.map(section => \`
+            ${sections.map(section => `
               <div class="mobile-card">
-                <h2 class="font-bold text-base text-slate-900 mb-2">\${section.id}. \${section.title}</h2>
+                <h2 class="font-bold text-base text-slate-900 mb-2">${section.id}. ${section.title}</h2>
                 <div class="text-xs text-slate-600">
-                  \${section.content}
+                  ${section.content}
                 </div>
               </div>
-            \`).join('')}
+            `).join('')}
             
             <!-- Contact Legal -->
             <div class="bg-indigo-50 rounded-xl p-4">
@@ -212,14 +212,14 @@ export class TermsPage extends Page {
           
           <!-- Desktop Sections -->
           <div class="hidden md:block prose prose-lg text-slate-600 space-y-8">
-            ${sections.map(section => \`
+            ${sections.map(section => `
               <section>
-                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">\${section.id}. \${section.title}</h2>
+                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">${section.id}. ${section.title}</h2>
                 <div class="text-slate-600">
-                  \${section.content}
+                  ${section.content}
                 </div>
               </section>
-            \`).join('')}
+            `).join('')}
             
             <section>
               <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Questions About These Terms?</h2>
@@ -239,7 +239,7 @@ export class TermsPage extends Page {
           
         </div>
       </div>
-    \`;
+    `;
 
     return this.renderPage(content);
   }

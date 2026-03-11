@@ -138,7 +138,7 @@ export class PrivacyPage extends Page {
       },
       {
         id: 7,
-        title: 'Children\\'s Privacy',
+        title: "Children's Privacy",
         content: `
           <p class="mb-2">ScholarShare is designed for students, which may include users under 18.</p>
           <ul class="list-disc list-inside space-y-1 mb-4">
@@ -151,9 +151,9 @@ export class PrivacyPage extends Page {
         `
       },
       {
-  id: 8,
-    title: 'Cookies & Tracking',
-      content: `
+        id: 8,
+        title: 'Cookies & Tracking',
+        content: `
           <p class="mb-4">As a mobile application, we do not use traditional browser cookies.</p>
           <p class="mb-2">We use:</p>
           <ul class="list-disc list-inside space-y-1 mb-4">
@@ -164,11 +164,11 @@ export class PrivacyPage extends Page {
           </ul>
           <p>You can clear all locally stored App data through your device settings at any time.</p>
         `
-},
-{
-  id: 9,
-    title: 'International Data Transfers',
-      content: `
+      },
+      {
+        id: 9,
+        title: 'International Data Transfers',
+        content: `
           <p class="mb-4">ScholarShare operates from India. Your data may be processed on servers located in regions where our cloud infrastructure providers operate (including the United States and European Union).</p>
           <p class="mb-2">We ensure that any international data transfers comply with applicable data protection laws, including:</p>
           <ul class="list-disc list-inside space-y-1 mb-4">
@@ -177,11 +177,11 @@ export class PrivacyPage extends Page {
             <li>Encryption of data in transit and at rest</li>
           </ul>
         `
-},
-{
-  id: 10,
-    title: 'Changes to This Policy',
-      content: `
+      },
+      {
+        id: 10,
+        title: 'Changes to This Policy',
+        content: `
           <p class="mb-2">We may update this Privacy Policy from time to time. Changes will be:</p>
           <ul class="list-disc list-inside space-y-1 mb-4">
             <li>Posted within the App with the updated effective date</li>
@@ -191,14 +191,14 @@ export class PrivacyPage extends Page {
           <p class="mb-4">Continued use of the App after changes constitutes acceptance of the updated Privacy Policy.</p>
           <p>We encourage you to review this policy periodically.</p>
         `
-}
+      }
     ];
   }
 
-render() {
-  const sections = this.privacySections;
+  render() {
+    const sections = this.privacySections;
 
-  const content = `
+    const content = `
       <div class="pt-20 md:pt-32 pb-8 md:pb-20">
         <div class="max-w-4xl mx-auto px-4 md:px-6">
           
@@ -227,14 +227,14 @@ render() {
           <!-- Sections -->
           <!-- Mobile Sections -->
           <div class="md:hidden space-y-4">
-            ${sections.map(section => \`
+            ${sections.map(section => `
               <div class="mobile-card">
-                <h2 class="font-bold text-base text-slate-900 mb-2">\${section.id}. \${section.title}</h2>
+                <h2 class="font-bold text-base text-slate-900 mb-2">${section.id}. ${section.title}</h2>
                 <div class="text-xs text-slate-600">
-                  \${section.content}
+                  ${section.content}
                 </div>
               </div>
-            \`).join('')}
+            `).join('')}
             
             <div class="bg-red-50 border border-red-100 rounded-xl p-4">
               <h2 class="font-bold text-red-800 mb-2">11. Data Breach Notification</h2>
@@ -268,14 +268,14 @@ render() {
           
           <!-- Desktop Sections -->
           <div class="hidden md:block prose prose-lg text-slate-600 space-y-8">
-            ${sections.map(section => \`
+            ${sections.map(section => `
               <section>
-                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">\${section.id}. \${section.title}</h2>
+                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">${section.id}. ${section.title}</h2>
                 <div class="text-slate-600">
-                  \${section.content}
+                  ${section.content}
                 </div>
               </section>
-            \`).join('')}
+            `).join('')}
             
             <section>
               <div class="bg-red-50 border border-red-100 rounded-2xl p-6">
@@ -313,7 +313,7 @@ render() {
           
         </div>
       </div>
-    \`;
+    `;
 
     return this.renderPage(content);
   }
