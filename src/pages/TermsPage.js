@@ -12,7 +12,7 @@ export class TermsPage extends Page {
     super({
       ...props,
       pageId: 'terms',
-      title: 'Terms of Use | ScholarShare',
+      title: 'Terms & Conditions | ScholarShare',
       bgClass: 'bg-slate-50'
     });
   }
@@ -24,121 +24,131 @@ export class TermsPage extends Page {
     return [
       {
         id: 1,
-        title: 'Account & Registration',
-        mobileContent: `
-          <ul class="text-xs space-y-1 list-disc list-inside">
-            <li>Provide accurate information</li>
-            <li>Keep credentials confidential</li>
-            <li>No multiple accounts</li>
-          </ul>
-        `,
-        desktopContent: `
-          <ul class="list-disc list-inside space-y-2 text-slate-600">
-            <li>You must provide accurate, current, and complete information during registration</li>
-            <li>You are responsible for maintaining the confidentiality of your account credentials</li>
-            <li>You must notify us immediately of any unauthorized access</li>
-            <li>One person may not maintain multiple accounts</li>
-            <li>Institutional accounts must be registered by authorized personnel only</li>
-          </ul>
+        title: 'Acceptance of Terms',
+        content: `
+          <p class="mb-4">By downloading, installing, or using ScholarShare ("the App"), you agree to be bound by these Terms and Conditions ("Terms"). If you do not agree with any of these Terms, you must not use the App.</p>
+          <p>These Terms constitute a legally binding agreement between you ("User," "you") and ScholarShare ("we," "us," "our"). We reserve the right to modify these Terms at any time. Continued use of the App after changes constitutes acceptance of the modified Terms.</p>
         `
       },
       {
         id: 2,
-        title: 'Acceptable Use',
-        mobileContent: `
-          <p class="text-xs mb-2 text-green-700">✓ Educational purposes, academic integrity, respect IP</p>
-          <p class="text-xs text-red-700">✗ No data fabrication, ragging, impersonation, or scraping</p>
-        `,
-        desktopContent: `
-          <h3 class="text-xl font-bold text-slate-800 mt-6 mb-3">3.1 You agree to:</h3>
-          <ul class="list-disc list-inside space-y-2 text-slate-600">
-            <li>Use the platform for legitimate educational and professional purposes</li>
-            <li>Maintain academic integrity in all activities</li>
-            <li>Respect the intellectual property rights of others</li>
-            <li>Report any policy violations or security concerns</li>
+        title: 'Description of Service',
+        content: `
+          <p class="mb-4">ScholarShare is an educational platform that aggregates scholarship, internship, fellowship, hackathon, and other academic opportunity listings from publicly available sources across India.</p>
+          <p class="mb-2">The App provides:</p>
+          <ul class="list-disc list-inside space-y-1 mb-4">
+            <li>Aggregated opportunity listings from public sources</li>
+            <li>Personalized recommendations based on user preferences</li>
+            <li>Eligibility checking tools (experimental)</li>
+            <li>Opportunity saving and tracking features</li>
           </ul>
-          
-          <h3 class="text-xl font-bold text-slate-800 mt-6 mb-3">3.2 You must NOT:</h3>
-          <ul class="list-disc list-inside space-y-2 text-slate-600">
-            <li>Fabricate or falsify activity data for credit purposes</li>
-            <li>Engage in ragging, harassment, or bullying via Campus Channels</li>
-            <li>Share misleading information or impersonate others</li>
-            <li>Attempt to circumvent security measures or access unauthorized data</li>
-            <li>Use automated systems to scrape or collect data without permission</li>
-            <li>Violate any applicable UGC anti-ragging mandates</li>
-          </ul>
+          <p>ScholarShare does NOT directly provide scholarships, grants, or financial aid. We are an information aggregator and discovery platform.</p>
         `
       },
       {
         id: 3,
-        title: 'Campus Channels',
-        mobileContent: `<p class="text-xs">Violations lead to suspension, HEI reporting, or permanent ban.</p>`,
-        desktopContent: `
-          <p class="mb-4">
-            Campus Channels are designed for professional and academic discourse. Any violation of UGC anti-ragging mandates or institutional policies will lead to:
-          </p>
-          <ul class="list-disc list-inside space-y-2 text-slate-600">
-            <li>Immediate suspension of account access</li>
-            <li>Reporting to the HEI administration</li>
-            <li>Potential referral to the Anti-Ragging Committee</li>
-            <li>Permanent ban from the platform (for severe violations)</li>
+        title: 'User Accounts',
+        content: `
+          <p class="mb-2">To use certain features, you must create an account. You agree to:</p>
+          <ul class="list-disc list-inside space-y-1 mb-4">
+            <li>Provide accurate, current, and complete information</li>
+            <li>Maintain the security of your password and account</li>
+            <li>Promptly notify us of any unauthorized access</li>
+            <li>Accept responsibility for all activities under your account</li>
           </ul>
+          <p class="mb-4">You must be at least 13 years old to create an account. If you are under 18, you represent that you have parental or guardian consent to use the App.</p>
+          <p>We reserve the right to suspend or terminate accounts that violate these Terms.</p>
         `
       },
       {
         id: 4,
-        title: 'Verification Tiers',
-        mobileContent: `
-          <div class="text-xs space-y-1">
-            <p><strong>Tier 1:</strong> Self-claimed (informal)</p>
-            <p><strong>Tier 2:</strong> Peer-verified</p>
-            <p><strong>Tier 3:</strong> Host-verified (official ABC)</p>
-          </div>
-        `,
-        desktopContent: `
-          <p class="mb-4">
-            Our three-tier verification system ensures data integrity:
-          </p>
-          <ul class="list-disc list-inside space-y-2 text-slate-600">
-            <li><strong>Tier 1 (Self-Claimed):</strong> User-reported, informal tracking only</li>
-            <li><strong>Tier 2 (Peer-Verified):</strong> Validated by club leaders or peers</li>
-            <li><strong>Tier 3 (Host-Verified):</strong> Official verification for ABC credits</li>
+        title: 'User Content & Conduct',
+        content: `
+          <p class="mb-2">You agree NOT to:</p>
+          <ul class="list-disc list-inside space-y-1 mb-4">
+            <li>Use the App for any unlawful purpose</li>
+            <li>Submit false, misleading, or fraudulent information</li>
+            <li>Attempt to gain unauthorized access to our systems</li>
+            <li>Scrape, crawl, or harvest data from the App</li>
+            <li>Interfere with or disrupt the App's operation</li>
+            <li>Impersonate another person or entity</li>
+            <li>Use automated tools to access the App without permission</li>
           </ul>
+          <p>Any content you submit (profile information, preferences) remains your property, but you grant us a non-exclusive license to use it for providing and improving our services.</p>
         `
       },
       {
         id: 5,
-        title: 'IP & Service Changes',
-        mobileContent: `<p class="text-xs">Platform content owned by ScholarShare. 30 days notice for changes.</p>`,
-        desktopContent: `
-          <h3 class="text-xl font-bold text-slate-800 mb-3">Intellectual Property</h3>
-          <ul class="list-disc list-inside space-y-2 text-slate-600 mb-6">
-            <li>All platform content, features, and functionality are owned by ScholarShare Platform Pvt. Ltd.</li>
-            <li>Users retain ownership of their personal content and submissions</li>
-            <li>By submitting content, you grant us a non-exclusive license to display and process it for platform operations</li>
-            <li>Our trademarks, logos, and service marks may not be used without permission</li>
-          </ul>
-          
-          <h3 class="text-xl font-bold text-slate-800 mb-3">Service Modifications</h3>
-          <ul class="list-disc list-inside space-y-2 text-slate-600">
-            <li>We reserve the right to modify, suspend, or discontinue any part of the service</li>
-            <li>Institutional partners will receive 30 days notice for significant changes</li>
-            <li>Student data export will be facilitated upon request</li>
-            <li>We are not liable for any modification, suspension, or discontinuation</li>
-          </ul>
+        title: 'Intellectual Property',
+        content: `
+          <p class="mb-4">The App, including its design, logos, code, and original content, is owned by ScholarShare and protected by intellectual property laws.</p>
+          <p class="mb-4">Opportunity listings aggregated by ScholarShare are sourced from publicly available information. We attribute sources where possible and do not claim ownership of third-party content.</p>
+          <p>You may not reproduce, distribute, modify, or create derivative works of the App without our prior written consent.</p>
         `
       },
       {
         id: 6,
-        title: 'Disputes',
-        mobileContent: `<p class="text-xs">Governed by Indian law. Arbitration under Act 1996. Bangalore courts.</p>`,
-        desktopContent: `
-          <ul class="list-disc list-inside space-y-2 text-slate-600">
-            <li><strong>Governing Law:</strong> These Terms are governed by the laws of India</li>
-            <li><strong>Arbitration:</strong> Disputes shall be resolved through binding arbitration under the Arbitration and Conciliation Act, 1996</li>
-            <li><strong>Jurisdiction:</strong> Courts of Bangalore, Karnataka shall have exclusive jurisdiction</li>
-            <li><strong>Class Action Waiver:</strong> Disputes must be resolved on an individual basis</li>
+        title: 'Disclaimer of Warranties',
+        content: `
+          <p class="mb-4 font-semibold uppercase">The App is provided "as is" and "as available" without warranties of any kind, express or implied.</p>
+          <p class="mb-2">We do not guarantee:</p>
+          <ul class="list-disc list-inside space-y-1 mb-4">
+            <li>The accuracy, completeness, or timeliness of opportunity listings</li>
+            <li>That eligibility results are definitive or error-free</li>
+            <li>Uninterrupted or error-free operation of the App</li>
+            <li>That any particular scholarship or opportunity will be available</li>
           </ul>
+          <p>Users should always verify opportunity details and eligibility criteria directly with the issuing organization.</p>
+        `
+      },
+      {
+        id: 7,
+        title: 'Limitation of Liability',
+        content: `
+          <p class="mb-2">To the maximum extent permitted by applicable law, ScholarShare shall not be liable for:</p>
+          <ul class="list-disc list-inside space-y-1 mb-4">
+            <li>Any indirect, incidental, special, or consequential damages</li>
+            <li>Loss of profits, data, or opportunities</li>
+            <li>Damages arising from reliance on information in the App</li>
+            <li>Damages exceeding the amount you paid to use the App (if any)</li>
+          </ul>
+          <p>This limitation applies regardless of the legal theory (contract, tort, negligence, or otherwise).</p>
+        `
+      },
+      {
+        id: 8,
+        title: 'Third-Party Links & Services',
+        content: `
+          <p class="mb-2">The App may contain links to third-party websites, scholarship portals, and application forms. We are not responsible for:</p>
+          <ul class="list-disc list-inside space-y-1 mb-4">
+            <li>The content, accuracy, or practices of third-party sites</li>
+            <li>Any transactions between you and third-party providers</li>
+            <li>Privacy practices of third-party services</li>
+          </ul>
+          <p>Access to third-party content is at your own risk. We encourage you to review the terms and privacy policies of any third-party service.</p>
+        `
+      },
+      {
+        id: 9,
+        title: 'Termination',
+        content: `
+          <p class="mb-4">We may suspend or terminate your access to the App at any time, with or without cause, and with or without notice.</p>
+          <p class="mb-2">Upon termination:</p>
+          <ul class="list-disc list-inside space-y-1 mb-4">
+            <li>Your right to use the App ceases immediately</li>
+            <li>We may delete your account data in accordance with our Privacy Policy</li>
+            <li>Provisions that by their nature should survive termination will continue to apply</li>
+          </ul>
+          <p>You may delete your account at any time by contacting us at support@scholarshare.in.</p>
+        `
+      },
+      {
+        id: 10,
+        title: 'Governing Law',
+        content: `
+          <p class="mb-4">These Terms are governed by and construed in accordance with the laws of India, specifically the Information Technology Act 2000, the Indian Contract Act 1872, and other applicable regulations.</p>
+          <p class="mb-4">Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts in Bengaluru, Karnataka, India.</p>
+          <p>If any provision of these Terms is found to be unenforceable, the remaining provisions will continue in full force and effect.</p>
         `
       }
     ];
@@ -154,126 +164,82 @@ export class TermsPage extends Page {
           <!-- Header -->
           <div class="mb-6 md:mb-8">
             <!-- Mobile Header -->
-            <h1 class="mobile-hero-title md:hidden mb-2">Terms of Use</h1>
+            <h1 class="mobile-hero-title md:hidden mb-2">Terms & Conditions</h1>
             <!-- Desktop Header -->
-            <h1 class="hidden md:block text-5xl font-black mb-4">Terms of Use</h1>
+            <h1 class="hidden md:block text-5xl font-black mb-4">Terms & Conditions</h1>
             
-            <p class="text-slate-400 md:text-slate-500 text-xs md:text-base">Last updated: January 5, 2025</p>
+            <p class="text-slate-400 md:text-slate-500 text-xs md:text-base">Last updated: March 2026</p>
           </div>
           
           <!-- Intro -->
           <!-- Mobile Intro -->
           <p class="md:hidden text-slate-700 text-sm leading-relaxed mb-4">
-            By using ScholarShare, you agree to these Terms and NEP 2020 guidelines.
+            Please read these terms carefully before using ScholarShare. By using the App, you agree to these terms.
           </p>
           <!-- Desktop Intro -->
           <div class="hidden md:block prose prose-lg text-slate-600 mb-8">
             <p class="text-lg font-medium text-slate-700">
-              These Terms of Use ("Terms") govern your access to and use of the ScholarShare platform, services, and applications. By accessing or using our services, you agree to be bound by these Terms.
+              Please read these terms carefully before using ScholarShare. By using the App, you agree to these terms.
             </p>
-            
-            <section>
-              <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">1. Acceptance of Terms</h2>
-              <p class="mb-4">
-                By accessing the ScholarShare platform, you agree to comply with these Terms and all applicable laws, including the National Education Policy 2020 guidelines regarding academic integrity and credit transfer. If you do not agree, you must not use our services.
-              </p>
-            </section>
           </div>
           
           <!-- Sections -->
           <!-- Mobile Sections -->
           <div class="md:hidden space-y-4">
-            ${sections.map(section => `
+            ${sections.map(section => \`
               <div class="mobile-card">
-                <h2 class="font-bold text-base text-slate-900 mb-2">${section.id}. ${section.title}</h2>
-                ${section.mobileContent}
+                <h2 class="font-bold text-base text-slate-900 mb-2">\${section.id}. \${section.title}</h2>
+                <div class="text-xs text-slate-600">
+                  \${section.content}
+                </div>
               </div>
-            `).join('')}
-            
-            <!-- Data Accuracy Warning -->
-            <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
-              <p class="font-bold text-amber-800 text-sm mb-1">⚠️ Data Accuracy</p>
-              <p class="text-xs text-amber-700">
-                You're responsible for self-claimed data. Fabrication = academic penalties.
-              </p>
-            </div>
+            \`).join('')}
             
             <!-- Contact Legal -->
             <div class="bg-indigo-50 rounded-xl p-4">
-              <h3 class="font-bold text-sm text-slate-900 mb-2">Contact Legal</h3>
-              <a href="mailto:legal@scholarshare.in" class="text-indigo-600 text-sm font-medium">
-                legal@scholarshare.in
+              <h3 class="font-bold text-sm text-slate-900 mb-2">Questions About These Terms?</h3>
+              <p class="text-xs text-slate-600 mb-2">If you have any questions about these Terms and Conditions, please contact us:</p>
+              <a href="mailto:support@scholarshare.in" class="text-indigo-600 text-sm font-medium">
+                support@scholarshare.in
               </a>
+              <div class="mt-4 pt-4 border-t border-indigo-100 text-[10px] text-slate-500">
+                Effective Date: March 2026<br/>
+                Last Updated: March 2026<br/><br/>
+                ScholarShare is operated from India and these Terms are subject to Indian law.
+              </div>
             </div>
           </div>
           
           <!-- Desktop Sections -->
           <div class="hidden md:block prose prose-lg text-slate-600 space-y-8">
-            <section>
-              <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">2. Account Registration</h2>
-              ${sections[0].desktopContent}
-            </section>
+            ${sections.map(section => \`
+              <section>
+                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">\${section.id}. \${section.title}</h2>
+                <div class="text-slate-600">
+                  \${section.content}
+                </div>
+              </section>
+            \`).join('')}
             
             <section>
-              <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">3. Acceptable Use</h2>
-              ${sections[1].desktopContent}
-            </section>
-            
-            <section>
-              <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">4. Campus Channels Conduct</h2>
-              ${sections[2].desktopContent}
-            </section>
-            
-            <section>
-              <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">5. Data Accuracy & Verification</h2>
-              <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6 mb-4">
-                <p class="font-bold text-amber-800 mb-2">⚠️ Important Notice</p>
-                <p class="text-amber-700">
-                  Users are responsible for the accuracy of self-claimed data (Tier 1). Fabricating data for institutional credit is a serious violation and may result in academic penalties as determined by your institution.
-                </p>
-              </div>
-              ${sections[3].desktopContent}
-            </section>
-            
-            <section>
-              <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">6. Intellectual Property & Service</h2>
-              ${sections[4].desktopContent}
-            </section>
-            
-            <section>
-              <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">7. Institutional Agreements</h2>
-              <p class="mb-4">
-                Institutional users are subject to additional terms specified in their Master Service Agreement (MSA). In case of conflict between these Terms and the MSA, the MSA shall prevail.
-              </p>
-            </section>
-            
-            <section>
-              <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">8. Limitation of Liability</h2>
+              <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Questions About These Terms?</h2>
               <div class="bg-slate-100 p-6 rounded-2xl">
-                <p class="text-slate-700">
-                  To the maximum extent permitted by law, ScholarShare shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the platform. Our total liability is limited to the fees paid by the institution in the preceding 12 months or ₹10,000, whichever is greater.
+                <p class="text-slate-700 mb-2">
+                  If you have any questions about these Terms and Conditions, please contact us:
                 </p>
-              </div>
-            </section>
-            
-            <section>
-              <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">9. Dispute Resolution</h2>
-              ${sections[5].desktopContent}
-            </section>
-            
-            <section>
-              <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">10. Contact Information</h2>
-              <div class="bg-slate-100 p-6 rounded-2xl">
-                <p class="font-bold text-slate-900 mb-2">Legal Department</p>
-                <p>ScholarShare Platform Pvt. Ltd.</p>
-                <p>Email: <a href="mailto:legal@scholarshare.in" class="text-indigo-600 hover:underline">legal@scholarshare.in</a></p>
+                <p>Email: <a href="mailto:support@scholarshare.in" class="text-indigo-600 hover:underline">support@scholarshare.in</a></p>
+                <div class="mt-4 pt-4 border-t border-slate-200 text-sm text-slate-500">
+                  Effective Date: March 2026<br/>
+                  Last Updated: March 2026<br/><br/>
+                  ScholarShare is operated from India and these Terms are subject to Indian law.
+                </div>
               </div>
             </section>
           </div>
           
         </div>
       </div>
-    `;
+    \`;
 
     return this.renderPage(content);
   }
