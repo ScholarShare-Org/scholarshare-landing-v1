@@ -22,8 +22,8 @@ export class Router {
      * Initialize router and bind to hash changes
      */
     init() {
-        // Listen for hash changes
-        window.addEventListener('hashchange', () => this.handleRouteChange());
+        // Listen for history state changes
+        window.addEventListener('popstate', () => this.handleRouteChange());
 
         // Handle initial route on page load
         window.addEventListener('DOMContentLoaded', () => {
@@ -61,54 +61,62 @@ export class Router {
             return;
         }
 
-        // Update URL hash
-        const hash = this.buildHash(routeId, params);
-        window.location.hash = hash;
+        // Update URL path instead of hash
+        const path = this.buildPath(routeId, params);
+        if (window.location.pathname !== path) {
+            window.history.pushState({ routeId, params }, '', path);
+        }
+
+        // Manually trigger the route change after pushing state
+        this.handleRouteChange();
     }
 
     /**
-     * Build hash string from route ID and params
+     * Build path string from route ID and params
      * @param {string} routeId - Route identifier
      * @param {Object} params - Route parameters
-     * @returns {string} Hash string
+     * @returns {string} Path string
      */
-    buildHash(routeId, params = {}) {
-        let hash = routeId;
+    buildPath(routeId, params = {}) {
+        let path = routeId === this.defaultRoute ? '/' : `/${routeId}`;
         const paramStr = Object.entries(params)
             .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
             .join('&');
 
         if (paramStr) {
-            hash += `?${paramStr}`;
+            path += `?${paramStr}`;
         }
 
-        return hash;
+        return path;
     }
 
     /**
-     * Parse current hash to extract route ID and params
+     * Parse current location to extract route ID and params
      * @returns {Object} Parsed route info
      */
-    parseHash() {
-        const hash = window.location.hash.slice(1) || this.defaultRoute;
-        const [routeId, queryString] = hash.split('?');
+    parseLocation() {
+        const path = window.location.pathname.slice(1) || this.defaultRoute;
+        const queryString = window.location.search.slice(1);
 
         const params = {};
         if (queryString) {
             queryString.split('&').forEach(pair => {
-                const [key, value] = pair.split('=');
-                params[key] = decodeURIComponent(value || '');
+                if (pair) {
+                    const [key, value] = pair.split('=');
+                    params[key] = decodeURIComponent(value || '');
+                }
             });
         }
 
-        return { routeId: routeId || this.defaultRoute, params };
+        const routeId = path.split('/')[0] || this.defaultRoute;
+        return { routeId, params };
     }
 
     /**
      * Handle route changes
      */
     handleRouteChange() {
-        const { routeId, params } = this.parseHash();
+        const { routeId, params } = this.parseLocation();
 
         // Deactivate current route
         if (this.currentRoute && this.routes.has(this.currentRoute)) {
