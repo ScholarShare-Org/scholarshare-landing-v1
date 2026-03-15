@@ -116,7 +116,7 @@ export class PrivacyPage extends Page {
             <li><strong>Crash/performance logs:</strong> Retained for 90 days</li>
             <li><strong>Deleted account data:</strong> Permanently removed within 30 days of account deletion</li>
           </ul>
-          <p>You can request immediate deletion of your account and all associated data at any time by contacting us.</p>
+          <p>You can request immediate deletion of your account and all associated data at any time by contacting us at <a href="mailto:privacy@scholarshare.in" class="text-indigo-600 hover:underline">privacy@scholarshare.in</a> with the subject line <strong>"Account Deletion Request"</strong>.</p>
         `
       },
       {
